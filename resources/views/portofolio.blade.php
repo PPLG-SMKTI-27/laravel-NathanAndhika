@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Andikss Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .glow {
-      box-shadow: 0 0 25px rgba(239,68,68,.5);
-    }
-  </style>
-</head>
-
-<body class="bg-[#0f0f0f] text-gray-200 scroll-smooth">
-
-<!-- NAVBAR -->
-<nav class="fixed w-full bg-black/40 backdrop-blur z-50 border-b border-red-500/20">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-red-500">🔥 PORTFOLIO</h1>
-    <div class="hidden md:flex space-x-8">
-      <a href="#home" class="hover:text-red-500">Home</a>
-      <a href="#about" class="hover:text-red-500">About</a>
-      <a href="#skills" class="hover:text-red-500">Skills</a>
-      <a href="#projects" class="hover:text-red-500">Projects</a>
-      <a href="#contact" class="hover:text-red-500">Contact</a>
-    </div>
-  </div>
-</nav>
+@extends('layouts.main')
+@section('title','andikss Portfolio')
+@section('content')
+@include('component.nav')
 
 <!-- HERO -->
 <section id="home" class="h-screen flex flex-col items-center justify-center text-center px-6">
@@ -37,7 +12,7 @@
     <span class="text-white">Welcome To Portofolio Andikss</span>
   </h2>
   <p class="text-gray-400 max-w-xl mx-auto mb-8">
-    Frontend Developer • UI Engineer • Creative Coder
+    Frontend Developer• Backend Developer • UI Engineer • Creative Coder
   </p>
 
     <style>
@@ -108,53 +83,6 @@
 
 <!-- CONTACT -->
 <!-- FOOTER -->
+@include('component.footer')
 
-<footer>
-  <p><b>CONTACT INSTAGRAM</b></p>
-  <div class="footer-btn">
-    <a href="https://instagram.com/digimonn.s" target="_blank" class="btn-ig">Follow on Instagram</a>
-  </div>
-</footer>
-
-<style>
-  /* ===== FOOTER ===== */
-  footer {
-    border-top: 1px solid rgba(239,68,68,0.2);
-    text-align: center;  /* semua tulisan dan tombol di tengah */
-    padding: 24px;
-    font-size: 14px;
-    color: #6b7280;
-  }
-
-  /* ===== FOOTER BUTTON CONTAINER ===== */
-  .footer-btn {
-    margin-top: 12px;
-  }
-
-  /* ===== INSTAGRAM BUTTON ===== */
-  .btn-ig {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 999px;
-    background-color: #ef4444;
-    color: #000;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .btn-ig:hover {
-    background-color: #f87171;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
-    transform: translateY(-2px);
-  }
-</style>
-
-
-
-<!-- FOOTER -->
-<footer class="py-6 text-center text-gray-500 text-sm border-t border-red-500/20">
-  © 2026 Nathan • Portfolio
-</footer>
-
-</body>
-</html>
+@endsection

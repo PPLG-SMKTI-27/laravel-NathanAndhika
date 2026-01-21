@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects • Andikss</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .glow {
-      box-shadow: 0 0 25px rgba(239,68,68,.5);
-    }
-  </style>
-</head>
-
-<body class="bg-[#0f0f0f] text-gray-200 scroll-smooth">
+@extends('layouts.main')
+@section('title','Andikss Projects')
+@section('content')
 
 <!-- NAVBAR -->
 <nav class="fixed w-full bg-black/40 backdrop-blur z-50 border-b border-red-500/20">
@@ -36,15 +24,6 @@
   </div>
 </nav>
 
-<script>
-  // Toggle Mobile Menu
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
 
 
 <!-- HEADER -->
@@ -119,8 +98,19 @@
   © 2026 Andikss • Programming Projects
 </footer>
 
-</body>
-</html>
+@endsection
+
+@section('script')
+<script>
+  // Toggle Mobile Menu
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+@endsection
 {{-- <section class="max-w-7xl mx-auto px-6 pb-24">
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
