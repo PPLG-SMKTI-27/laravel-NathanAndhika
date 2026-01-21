@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','andikss Portfolio')
 @section('content')
-@include('component.nav')
+<x-navbar/>
 
 <!-- HERO -->
 <section id="home" class="h-screen flex flex-col items-center justify-center text-center px-6">
@@ -83,6 +83,6 @@
 
 <!-- CONTACT -->
 <!-- FOOTER -->
-@include('component.footer')
+@include('components.footer')
 
 @endsection
