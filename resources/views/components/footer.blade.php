@@ -2,6 +2,7 @@
   <p><b>CONTACT INSTAGRAM</b></p>
   <div class="footer-btn">
     <a href="https://instagram.com/digimonn.s" target="_blank" class="btn-ig">Follow on Instagram</a>
+    <a href="https://www.roblox.com/share?code=92175f2ddbd35c4e9f2b9d4c80917d78&type=Profile&source=ProfileShare&stamp=1769044927858" target="_blank" class="btn-ig">Follow My Roblox Account</a>
   </div>
   <div class="py-6 text-center text-gray-500 text-sm border-t border-red-500/20"> 
     © 2026 Nathan • Portfolio </div>

@@ -83,6 +83,6 @@
 
 <!-- CONTACT -->
 <!-- FOOTER -->
-@include('components.footer')
+<x-footer/>
 
 @endsection

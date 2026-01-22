@@ -50,11 +50,11 @@
 <section class="max-w-7xl mx-auto px-6 pb-24">
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- PROJECT CARD -->
+ @foreach($list as $s)
     <div class="bg-[#141414] p-6 rounded-xl border border-red-500/20 hover:glow hover:-translate-y-2 transition">
-      <h3 class="text-xl font-semibold mb-2">Cyber Landing Page</h3>
+      <h3 class="text-xl font-semibold mb-2">{{ $s['title'] }}</h3>
       <p class="text-gray-400 text-sm mb-4">
-        Landing page futuristik dengan Tailwind CSS dan animasi interaktif.
+       {{ $s['desc'] }}
       </p>
       <div class="flex flex-wrap gap-2 mb-4">
         <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">HTML</span>
@@ -62,33 +62,8 @@
       </div>
       <a href="#" class="text-red-500 text-sm hover:underline">View Project →</a>
     </div>
+    @endforeach
 
-    <!-- PROJECT CARD -->
-    <div class="bg-[#141414] p-6 rounded-xl border border-red-500/20 hover:glow hover:-translate-y-2 transition">
-      <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-      <p class="text-gray-400 text-sm mb-4">
-        Website personal branding dengan desain dark mode modern.
-      </p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">HTML</span>
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">CSS</span>
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">JavaScript</span>
-      </div>
-      <a href="#" class="text-red-500 text-sm hover:underline">View Project →</a>
-    </div>
-
-    <!-- PROJECT CARD -->
-    <div class="bg-[#141414] p-6 rounded-xl border border-red-500/20 hover:glow hover:-translate-y-2 transition">
-      <h3 class="text-xl font-semibold mb-2">Admin Dashboard</h3>
-      <p class="text-gray-400 text-sm mb-4">
-        Dashboard admin dengan dark UI, chart, dan layout responsif.
-      </p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">React</span>
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">Tailwind</span>
-      </div>
-      <a href="#" class="text-red-500 text-sm hover:underline">View Project →</a>
-    </div>
 
   </div>
 </section>
