@@ -7,10 +7,26 @@
       <a href="#skills" class="hover:text-red-500">Skills</a>
       <a href="#projects" class="hover:text-red-500">Projects</a>
       <a href="#contact" class="hover:text-red-500">Contact</a>
-      <a href="/login"
-   class="ml-8 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-lg transition duration-300">
-  Login
-</a>
+            <div class="flex justify-center">
+                @if (!session('is_login'))
+                    <a
+                        href="/login"
+                        class="px-2 py-1
+                            bg-red-500 rounded-md text-white font-semibold">
+                        <span class="cta-text relative z-10">Login</span>
+                    </a>
+                @else
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button
+                            type="submit"
+                        class="px-2 py-1
+                            bg-red-500 rounded-md text-white font-semibold">
+                            <span class="cta-text relative z-10">Logout</span>
+                        </button>
+                    </form>
+                @endif
+            </div>
 
 
 

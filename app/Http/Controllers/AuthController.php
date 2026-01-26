@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -18,7 +19,28 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        if (
+            $data['email'] === 'admin@example.com' &&
+            $data['password'] === '1234567'
+        ) {
+            $request->session()->put('is_login', true);
+            $request->session()->put('user_email', $data['email']);
+
+            return redirect('/')
+                ->with('success', 'Login berhasil');
+        }
+
+        return back()
+            ->with('error', 'Email atau password salah');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget(['is_login', 'user_email']);
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/')
-            ->with('success', 'Login berhasil');
+            ->with('success', 'Logout berhasil');
     }
 }
