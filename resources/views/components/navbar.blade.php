@@ -7,6 +7,13 @@
       <a href="#skills" class="hover:text-red-500">Skills</a>
       <a href="#projects" class="hover:text-red-500">Projects</a>
       <a href="#contact" class="hover:text-red-500">Contact</a>
+      <a href="/login"
+   class="ml-8 inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-lg transition duration-300">
+  Login
+</a>
+
+
+
     </div>
   </div>
-</nav>
+</nav>  
