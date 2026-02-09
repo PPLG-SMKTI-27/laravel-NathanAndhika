@@ -50,19 +50,27 @@
 <section class="max-w-7xl mx-auto px-6 pb-24">
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
- @foreach($list as $s)
+    @if ($projects->isEmpty())
+    <p>Data project belum tersedia</p>
+@else
+
+ @foreach($projects as $s)
     <div class="bg-[#141414] p-6 rounded-xl border border-red-500/20 hover:glow hover:-translate-y-2 transition">
-      <h3 class="text-xl font-semibold mb-2">{{ $s['title'] }}</h3>
+      <h3 class="text-xl font-semibold mb-2">{{ $s->title }}</h3>
       <p class="text-gray-400 text-sm mb-4">
-       {{ $s['desc'] }}
+       {{ $s->description }}
       </p>
       <div class="flex flex-wrap gap-2 mb-4">
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">HTML</span>
-        <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">Tailwind</span>
+        @foreach ($s->technology as $tech)
+          <span class="text-xs px-3 py-1 border border-red-500/40 rounded-full">
+          {{ $tech }}
+          </span>
+        @endforeach
       </div>
       <a href="#" class="text-red-500 text-sm hover:underline">View Project →</a>
     </div>
     @endforeach
+    @endif
 
 
   </div>
