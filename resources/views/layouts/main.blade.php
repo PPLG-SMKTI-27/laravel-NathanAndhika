@@ -2,15 +2,27 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-…(varies by version)…"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
       <style>
     .glow {
       box-shadow: 0 0 25px rgba(239,68,68,.5);
     }
+    
+    .space-btn:hover{
+  box-shadow:0 0 12px #22d3ee,0 0 20px #a855f7;
+}
   </style>
 </head>
 <body class="bg-[#0f0f0f] text-gray-200 scroll-smooth">
+    {{-- @include('layouts.navigation') --}}
   @if (session('success'))
     <div
         id="success-alert"
@@ -62,9 +74,121 @@
     }
     </style>
     @endif
-    <div class="container">
-        @yield('content')
-    </div>
+    <div class="w-full min-h-screen">
+    @yield('content')
+</div>
+    <script src="https://unpkg.com/alpinejs" defer></script>
     @yield('script')
+
+    {{-- (---Lagu---) --}}
+<audio id="bgMusic" loop></audio>
+
+<div class="fixed bottom-6 right-6 z-50 flex items-center gap-4
+bg-gradient-to-r from-indigo-900/70 via-purple-900/70 to-black/70
+backdrop-blur-md px-5 py-3 rounded-xl border border-cyan-400/40
+shadow-[0_0_25px_rgba(34,211,238,0.4)]">
+
+    <span id="songTitle" class="text-sm text-cyan-300 font-semibold tracking-wide">
+        Loading...
+    </span>
+
+    <button onclick="prevSong()" class="space-btn text-cyan-300">
+    ⏮
+    </button>
+
+    <button onclick="toggleMusic()" class="space-btn text-purple-300">
+    🔊
+    </button>
+
+    <button onclick="nextSong()" class="space-btn text-cyan-300">
+    ⏭
+    </button>
+
+</div>
+
+<script>
+
+let music = document.getElementById("bgMusic");
+let title = document.getElementById("songTitle");
+
+let songs = [
+{
+title: "What It Is",
+src: "/audio/music.mp3"
+},
+{
+title: "Specy",
+src: "/audio/music2.mp3"
+},
+{
+title: "I Wanna Be Yours",
+src: "/audio/music3.mp3"
+},
+{
+title: "Separuh Nafas Dewa 19",
+src: "/audio/music4.mp3"
+}
+];
+
+let currentSong = localStorage.getItem("songIndex") || 0;
+
+function loadSong(){
+
+music.src = songs[currentSong].src;
+title.innerText = songs[currentSong].title;
+
+}
+
+loadSong();
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+localStorage.setItem("musicPlaying","true");
+}else{
+music.pause();
+localStorage.setItem("musicPlaying","false");
+}
+
+}
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong >= songs.length){
+currentSong = 0;
+}
+
+localStorage.setItem("songIndex", currentSong);
+
+loadSong();
+music.play();
+
+}
+
+function prevSong(){
+
+currentSong--;
+
+if(currentSong < 0){
+currentSong = songs.length - 1;
+}
+
+localStorage.setItem("songIndex", currentSong);
+
+loadSong();
+music.play();
+
+}
+
+/* autoplay jika sebelumnya play */
+
+if(localStorage.getItem("musicPlaying") === "true"){
+music.play();
+}
+
+</script>
 </body>
 </html>

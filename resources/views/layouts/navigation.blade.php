@@ -32,6 +32,7 @@
                             </div>
                         </button>
                     </x-slot>
+                    
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
@@ -75,8 +76,10 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
+                @auth
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                @endauth
             </div>
 
             <div class="mt-3 space-y-1">

@@ -1,35 +1,121 @@
-<nav class="fixed w-full bg-black/40 backdrop-blur z-50 border-b border-red-500/20">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-red-500">🔥 PORTFOLIO</h1>
-    <div class="hidden md:flex space-x-8">
-      <a href="#home" class="hover:text-red-500">Home</a>
-      <a href="#about" class="hover:text-red-500">About</a>
-      <a href="#skills" class="hover:text-red-500">Skills</a>
-      <a href="#projects" class="hover:text-red-500">Projects</a>
-      <a href="#contact" class="hover:text-red-500">Contact</a>
-            <div class="flex justify-center">
+<nav x-data="{ open: false }" class="fixed w-full z-[100] transition-all duration-300 border-b border-white/5 bg-slate-950/60 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+        
+        <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="relative">
+                <div class="absolute inset-0 bg-cyan-500 rounded-full blur-md opacity-20 group-hover:opacity-50 transition-opacity"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-cyan-400 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.5 19L15 21.5L12.5 19"></path>
+                    <path d="M15 12V21.5"></path>
+                    <path d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </div>
+            <div class="flex flex-col">
+                <h1 class="text-lg font-black tracking-[0.2em] text-white leading-none uppercase">NATHAN</h1>
+                <span class="text-[9px] font-mono text-cyan-500 tracking-[0.3em] uppercase opacity-70">Pilot_ID: 0126</span>
+            </div>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-1">
+            @foreach(['home', 'about', 'skills', 'projects', 'contact'] as $link)
+            <a href="#{{ $link }}" 
+               class="px-4 py-2 text-[11px] font-mono uppercase tracking-[0.2em] text-slate-400 hover:text-cyan-400 hover:bg-white/5 rounded-sm transition-all duration-300">
+                <span class="text-cyan-600/50 mr-1">//</span>{{ $link }}
+            </a>
+            @endforeach
+
+            <div class="pl-6 ml-6 border-l border-white/10">
                 @if (!session('is_login'))
-                    <a
-                        href="/login"
-                        class="px-2 py-1
-                            bg-red-500 rounded-md text-white font-semibold">
-                        <span class="cta-text relative z-10">Login</span>
+                    <a href="/login" class="group relative px-6 py-2 overflow-hidden rounded-sm bg-cyan-600 transition-all hover:bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                        <span class="relative z-10 text-[11px] font-black uppercase tracking-widest text-white">Initiate Login</span>
                     </a>
                 @else
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST" class="m-0">
                         @csrf
-                        <button
-                            type="submit"
-                        class="px-2 py-1
-                            bg-red-500 rounded-md text-white font-semibold">
-                            <span class="cta-text relative z-10">Logout</span>
+                        <button type="submit" class="group flex items-center gap-2 px-5 py-2 border border-red-500/30 bg-red-500/5 text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300 rounded-sm">
+                            <span class="text-[10px] font-bold uppercase tracking-widest">Eject</span>
                         </button>
                     </form>
                 @endif
             </div>
-
-
-
+        </div>
+        
+        <div class="md:hidden">
+            <button @click="open = true" class="p-2 text-slate-400 hover:text-cyan-400 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
     </div>
-  </div>
-</nav>  
+
+    <div x-show="open" 
+         x-transition.opacity.duration.300ms
+         @click="open = false"
+         class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden" style="display: none;">
+    </div>
+
+    <div x-show="open"
+         @click.away="open = false"
+         x-transition:enter="transition ease-out duration-300 transform"
+         x-transition:enter-start="translate-x-full"
+         x-transition:enter-end="translate-x-0"
+         x-transition:leave="transition ease-in duration-300 transform"
+         x-transition:leave-start="translate-x-0"
+         x-transition:leave-end="translate-x-full"
+         class="fixed top-0 right-0 h-screen w-72 bg-slate-950 border-l border-cyan-500/20 z-50 md:hidden flex flex-col shadow-[-20px_0_50px_rgba(0,0,0,0.9)]"
+         style="display: none;">
+        
+        <div class="flex justify-between items-center p-6 pb-4">
+            <div class="flex flex-col">
+                <span class="text-[10px] font-mono text-cyan-500 tracking-[0.3em] uppercase">Control Panel</span>
+                <div class="h-[1px] w-12 bg-cyan-900 mt-1"></div>
+            </div>
+            <button @click="open = false" class="p-2 rounded-full bg-white/5 text-slate-400 hover:text-red-400 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="px-6 py-4 border-b border-white/5">
+            @if (!session('is_login'))
+            <a href="/login"
+               class="flex items-center justify-center gap-3 w-full py-3 bg-cyan-600 text-white text-[11px] font-black uppercase tracking-widest rounded-sm shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                Initiate Login
+            </a>
+            @else
+            <form action="{{ route('logout') }}" method="POST" class="m-0">
+                @csrf
+                <button type="submit"
+                    class="flex items-center justify-center gap-3 w-full py-3 bg-red-500/10 text-red-500 border border-red-500/30 text-[11px] font-black uppercase tracking-widest rounded-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    Eject System
+                </button>
+            </form>
+            @endif
+        </div>
+
+        <div class="flex flex-col p-4 pt-6 gap-1 overflow-y-auto flex-1">
+            <span class="px-4 text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-2">System_Links</span>
+            @foreach(['home', 'about', 'skills', 'projects', 'contact'] as $link)
+            <a href="#{{ $link }}"
+               @click="open = false"
+               class="group flex items-center justify-between py-3 px-4 rounded-sm text-[11px] font-mono uppercase tracking-[0.2em] text-slate-400 hover:text-cyan-400 hover:bg-white/5 transition-all duration-300">
+                <span><span class="text-cyan-900 group-hover:text-cyan-500 mr-2">></span>{{ $link }}</span>
+                <span class="text-[8px] text-slate-800 group-hover:text-cyan-900 font-sans italic">0{{ $loop->iteration }}</span>
+            </a>
+            @endforeach
+        </div>
+
+        <div class="p-6 text-center">
+            <p class="text-[8px] font-mono text-slate-700 uppercase tracking-widest">Protocol v.4.0.1 // Active</p>
+        </div>
+    </div>
+</nav>
