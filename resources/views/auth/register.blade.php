@@ -15,9 +15,9 @@
 
         <div class="mb-8 border-b border-white/10 pb-6 text-center">
             <div class="flex items-center justify-center gap-3 mb-2">
-                <div class="h-[1px] w-6 bg-cyan-500"></div>
+                <div class="h-px w-6 bg-cyan-500"></div>
                 <span class="font-mono text-[10px] tracking-[0.4em] text-cyan-500 uppercase">System_Registry</span>
-                <div class="h-[1px] w-6 bg-cyan-500"></div>
+                <div class="h-px w-6 bg-cyan-500"></div>
             </div>
             <h2 class="text-3xl font-black text-white tracking-tighter uppercase italic">
                 Personnel <span class="text-slate-500">Onboarding</span>
@@ -28,7 +28,7 @@
             @csrf
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Designation [Name]</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Designation [Name]</label>
                 <input type="text" name="name" value="{{ old('name') }}"
                     class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
                            focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-300 rounded 
@@ -40,7 +40,7 @@
             </div>
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Comm-Link [Email]</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Comm-Link [Email]</label>
                 <input type="email" name="email" value="{{ old('email') }}"
                     class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
                            focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-300 rounded 
@@ -52,7 +52,7 @@
             </div>
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Security Key [Password]</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Security Key [Password]</label>
                 <input type="password" name="password"
                     class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
                            focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-300 rounded 
@@ -64,7 +64,7 @@
             </div>
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Verify Security Key</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Verify Security Key</label>
                 <input type="password" name="password_confirmation"
                     class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
                            focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-300 rounded 
@@ -77,7 +77,7 @@
 
             <div class="flex items-center justify-between pt-4">
                 <a href="{{ route('login') }}"
-                   class="font-mono text-[10px] uppercase tracking-[0.1em] text-cyan-600 hover:text-cyan-400 transition-colors border-b border-transparent hover:border-cyan-400 pb-0.5">
+                   class="font-mono text-[10px] uppercase tracking-widest text-cyan-600 hover:text-cyan-400 transition-colors border-b border-transparent hover:border-cyan-400 pb-0.5">
                     Credentials_Established?
                 </a>
 

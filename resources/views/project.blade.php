@@ -32,7 +32,7 @@
   class="pt-40 md:pt-45 scroll-mt-32 text-center px-6"
 >
   <h1 class="text-5xl md:text-6xl font-extrabold mb-4
-    bg-gradient-to-r from-red-500  to-white bg-clip-text text-transparent">
+    bg-linear-to-r from-red-500  to-white bg-clip-text text-transparent">
     {{ $nama }} Projects
   </h1>
   

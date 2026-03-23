@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-…(varies by version)…"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       referrerpolicy="no-referrer" />
 
       <style>
@@ -84,7 +83,7 @@
 <audio id="bgMusic" loop></audio>
 
 <div class="fixed bottom-6 right-6 z-50 flex items-center gap-4
-bg-gradient-to-r from-indigo-900/70 via-purple-900/70 to-black/70
+bg-linear-to-r from-indigo-900/70 via-purple-900/70 to-black/70
 backdrop-blur-md px-5 py-3 rounded-xl border border-cyan-400/40
 shadow-[0_0_25px_rgba(34,211,238,0.4)]">
 
@@ -117,7 +116,7 @@ title: "What It Is",
 src: "/audio/music.mp3"
 },
 {
-title: "Specy",
+title: "Sency",
 src: "/audio/music2.mp3"
 },
 {

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="fixed w-full z-[100] transition-all duration-300 border-b border-white/5 bg-slate-950/60 backdrop-blur-xl">
+<nav x-data="{ open: false }" class="fixed w-full z-100 transition-all duration-300 border-b border-white/5 bg-slate-950/60 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
         
         <div class="flex items-center gap-3 group cursor-pointer">
@@ -26,17 +26,22 @@
             @endforeach
 
             <div class="pl-6 ml-6 border-l border-white/10">
-                @if (!session('is_login'))
+                @if (!Auth::check())
                     <a href="/login" class="group relative px-6 py-2 overflow-hidden rounded-sm bg-cyan-600 transition-all hover:bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                         <span class="relative z-10 text-[11px] font-black uppercase tracking-widest text-white">Initiate Login</span>
                     </a>
                 @else
-                    <form action="{{ route('logout') }}" method="POST" class="m-0">
-                        @csrf
-                        <button type="submit" class="group flex items-center gap-2 px-5 py-2 border border-red-500/30 bg-red-500/5 text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300 rounded-sm">
-                            <span class="text-[10px] font-bold uppercase tracking-widest">Eject</span>
-                        </button>
-                    </form>
+                    <div class="flex items-center gap-3">
+                        <a href="{{ route('dashboard') }}" class="group relative px-6 py-2 overflow-hidden rounded-sm border border-cyan-500/50 bg-cyan-950/30 hover:bg-cyan-900/50 transition-all font-bold uppercase tracking-widest text-[11px] text-cyan-400 hover:text-cyan-300">
+                            Command Center
+                        </a>
+                        <form action="{{ route('logout') }}" method="POST" class="m-0">
+                            @csrf
+                            <button type="submit" class="group flex items-center gap-2 px-5 py-2 border border-red-500/30 bg-red-500/5 text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300 rounded-sm">
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Eject</span>
+                            </button>
+                        </form>
+                    </div>
                 @endif
             </div>
         </div>
@@ -70,7 +75,7 @@
         <div class="flex justify-between items-center p-6 pb-4">
             <div class="flex flex-col">
                 <span class="text-[10px] font-mono text-cyan-500 tracking-[0.3em] uppercase">Control Panel</span>
-                <div class="h-[1px] w-12 bg-cyan-900 mt-1"></div>
+                <div class="h-px w-12 bg-cyan-900 mt-1"></div>
             </div>
             <button @click="open = false" class="p-2 rounded-full bg-white/5 text-slate-400 hover:text-red-400 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,7 +85,7 @@
         </div>
 
         <div class="px-6 py-4 border-b border-white/5">
-            @if (!session('is_login'))
+            @if (!Auth::check())
             <a href="/login"
                class="flex items-center justify-center gap-3 w-full py-3 bg-cyan-600 text-white text-[11px] font-black uppercase tracking-widest rounded-sm shadow-[0_0_15px_rgba(6,182,212,0.4)]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,16 +94,25 @@
                 Initiate Login
             </a>
             @else
-            <form action="{{ route('logout') }}" method="POST" class="m-0">
-                @csrf
-                <button type="submit"
-                    class="flex items-center justify-center gap-3 w-full py-3 bg-red-500/10 text-red-500 border border-red-500/30 text-[11px] font-black uppercase tracking-widest rounded-sm">
+            <div class="flex flex-col gap-3">
+                <a href="{{ route('dashboard') }}"
+                   class="flex items-center justify-center gap-3 w-full py-3 border border-cyan-500/50 bg-cyan-950/30 hover:bg-cyan-900/50 text-cyan-400 text-[11px] font-black uppercase tracking-widest rounded-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
-                    Eject System
-                </button>
-            </form>
+                    Command Center
+                </a>
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                    @csrf
+                    <button type="submit"
+                        class="flex items-center justify-center gap-3 w-full py-3 bg-red-500/10 text-red-500 border border-red-500/30 text-[11px] font-black uppercase tracking-widest rounded-sm hover:bg-red-500 hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        Eject System
+                    </button>
+                </form>
+            </div>
             @endif
         </div>
 

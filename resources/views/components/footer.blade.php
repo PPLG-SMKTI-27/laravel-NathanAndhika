@@ -1,5 +1,5 @@
 <footer class="relative border-t border-white/10 bg-slate-950 py-12 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent shadow-[0_0_15px_rgba(6,182,212,0.8)]"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-cyan-500 to-transparent shadow-[0_0_15px_rgba(6,182,212,0.8)]"></div>
     <div class="absolute bottom-[-10%] left-[-5%] w-64 h-64 bg-cyan-600/5 rounded-full blur-[80px] pointer-events-none"></div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">

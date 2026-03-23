@@ -26,7 +26,7 @@
 
         <div class="mb-12 border-b border-white/10 pb-8 animate-fadeDown">
             <div class="flex items-center gap-3 mb-2">
-                <div class="h-[1px] w-8 bg-cyan-500"></div>
+                <div class="h-px w-8 bg-cyan-500"></div>
                 <span class="font-mono text-[10px] tracking-[0.4em] text-cyan-500 uppercase">Security_Clearance: Level_01</span>
             </div>
             <h1 class="text-4xl font-black text-white tracking-tighter uppercase italic">
@@ -37,7 +37,7 @@
         <div class="grid gap-8">
 
             <section class="group relative animate-fadeUp" style="animation-delay: 0.1s;">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="absolute -inset-0.5 bg-linear-to-r from-cyan-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
                 <div class="relative bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-xl p-8 hover:border-cyan-500/30 transition-all duration-500">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="p-3 bg-cyan-500/10 border border-cyan-500/20 rounded-lg">
@@ -56,7 +56,7 @@
             </section>
 
             <section class="group relative animate-fadeUp" style="animation-delay: 0.2s;">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="absolute -inset-0.5 bg-linear-to-r from-blue-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
                 <div class="relative bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-500">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
@@ -75,7 +75,7 @@
             </section>
 
             <section class="group relative animate-fadeUp" style="animation-delay: 0.3s;">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="absolute -inset-0.5 bg-linear-to-r from-rose-500/20 to-transparent rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
                 <div class="relative bg-slate-950/50 backdrop-blur-xl border border-white/10 rounded-xl p-8 hover:border-rose-500/30 transition-all duration-500">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="p-3 bg-rose-500/10 border border-rose-500/20 rounded-lg">

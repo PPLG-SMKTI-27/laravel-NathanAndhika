@@ -13,9 +13,13 @@ class Project extends Model
         'title',
         'description',
         'technology',
+        'progress',
+        'repo_url',
+        'screenshots',
     ];
     protected $casts = [
         'technology' => 'array',
+        'screenshots' => 'array',
     ];
 
     protected $primaryKey = 'id';
@@ -35,7 +39,15 @@ class Project extends Model
             \App\Models\ProjectHistory::create([
                 'project_id' => $project->id,
                 'title' => $project->title,
-                'action' => 'deleted'
+                'action' => $project->isForceDeleting() ? 'purged' : 'deleted'
+            ]);
+        });
+
+        static::restored(function ($project) {
+            \App\Models\ProjectHistory::create([
+                'project_id' => $project->id,
+                'title' => $project->title,
+                'action' => 'restored'
             ]);
         });
     }

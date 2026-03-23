@@ -2,7 +2,7 @@
 @section('title','Nathan | Mission Commander')
 @section('content')
 
-<div class="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-[9999] pointer-events-none animate-introOverlay overflow-hidden">
+<div class="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-9999 pointer-events-none animate-introOverlay overflow-hidden">
     <div class="absolute inset-0 z-0">
         <div class="absolute animate-asteroidDrift1" style="top: -10%; left: 20%;">
             <svg class="w-16 h-16 text-slate-700/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l6 4 4 8-3 8-10 2-7-5L2 10l5-6z"/></svg>
@@ -52,9 +52,9 @@
     <span class="text-cyan-500 mt-2">EVERYBODY</span>
 </h1>
         <div class="mt-4 flex items-center justify-center gap-2 animate-textReveal">
-            <div class="h-[1px] w-12 bg-cyan-900"></div>
+            <div class="h-px w-12 bg-cyan-900"></div>
             <span class="font-mono text-[10px] text-cyan-400 tracking-[0.4em] uppercase">System Boot Sequence...</span>
-            <div class="h-[1px] w-12 bg-cyan-900"></div>
+            <div class="h-px w-12 bg-cyan-900"></div>
         </div>
     </div>
 </div>
@@ -92,18 +92,18 @@
             <div class="relative z-10 animate-fadeUp">
                 <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none">
                     <span class="text-white">I'M</span>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 block">Natsssss</span>
+                    <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500 block">Natsssss</span>
                 </h2>
                 <p class="text-slate-400 max-w-2xl mx-auto mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4">
                     Student <span class="text-cyan-700 mx-1">//</span> 
                     Frontend Pilot
                 </p>
                 <div class="flex flex-wrap justify-center gap-5">
-                    <a href="#projects" class="group relative px-10 py-3.5 overflow-hidden rounded-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                        <div class="absolute inset-0 bg-cyan-600"></div>
-                        <span class="relative z-10 text-white font-bold tracking-widest text-xs uppercase">View Missions</span>
+                    <a href="#projects" class="group relative px-10 py-3.5 overflow-hidden rounded-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] magnetic-btn inline-block">
+                        <div class="absolute inset-0 bg-cyan-600 pointer-events-none"></div>
+                        <span class="relative z-10 text-white font-bold tracking-widest text-xs uppercase pointer-events-none">View Missions</span>
                     </a>
-                    <a href="#about" class="px-10 py-3.5 border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-white rounded-sm tracking-widest transition-all uppercase text-xs">Bio-Data</a>
+                    <a href="#about" class="px-10 py-3.5 border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-white rounded-sm tracking-widest transition-all uppercase text-xs magnetic-btn inline-block">Bio-Data</a>
                 </div>
             </div>
         </section>
@@ -114,7 +114,7 @@
                 <div class="relative animate-fadeUp flex justify-center md:w-1/3 w-full perspective-1000 group">
                     <p class="absolute -top-8 text-cyan-500/70 font-mono text-[10px] tracking-widest uppercase animate-pulse">Drag/Hover to tilt • Tap to flip</p>
                     
-                    <div id="tilt-wrapper" class="w-64 h-[22rem] cursor-pointer transform-style-3d transition-transform duration-[50ms] ease-out">
+                    <div id="tilt-wrapper" class="w-64 h-88 cursor-pointer transform-style-3d transition-transform duration-50 ease-out">
                         
                         <div id="card-inner" class="w-full h-full relative transition-transform duration-700 transform-style-3d">
                             
@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="p-9 bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-sm relative overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.3)]">
-                        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-scanLine opacity-70"></div>
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent animate-scanLine opacity-70"></div>
                         <p class="text-slate-300 text-lg leading-relaxed font-light first-letter:text-6xl first-letter:font-bold first-letter:text-cyan-500 first-letter:mr-3 first-letter:float-left first-letter:mt-1">
                             Saya adalah developer pemula yang fokus membangun website modern, cepat, dan visual yang kuat menggunakan Laravel, Tailwind CSS, JavaScript, dan teknologi web terbaru. 
                         </p>
@@ -195,13 +195,59 @@
             </div>
         </section>
 
-        <section id="skills" class="bg-slate-950/80 py-32 border-y border-white/5 relative z-10 backdrop-blur-sm">
+        <section id="skills" class="py-32 border-y border-white/5 relative z-10">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <h3 class="text-4xl font-black uppercase tracking-widest text-white mb-16">Technical Modules</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    @foreach(['HTML', 'CSS', 'JavaScript', 'Tailwind', 'React', 'Laravel'] as $skill)
-                    <div class="group relative px-12 py-5 bg-slate-900 border border-slate-800 rounded-sm hover:border-cyan-500/50 transition-all duration-500">
-                        <span class="relative z-10 font-mono text-sm font-bold tracking-widest text-slate-400 group-hover:text-cyan-200">{{ $skill }}</span>
+                <div class="inline-flex items-center justify-center gap-4 mb-16">
+                    <div class="h-[2px] w-8 md:w-16 bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,1)]"></div>
+                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-widest text-white">Technical Modules</h3>
+                    <div class="h-[2px] w-8 md:w-16 bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,1)]"></div>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                    @php
+                        $skills = [
+                            ['name' => 'HTML5', 'power' => 95, 'type' => 'Frontend Base'],
+                            ['name' => 'CSS3', 'power' => 90, 'type' => 'Styling Engine'],
+                            ['name' => 'JavaScript', 'power' => 85, 'type' => 'Client Logic'],
+                            ['name' => 'Tailwind', 'power' => 95, 'type' => 'Utility Framework'],
+                            ['name' => 'React', 'power' => 70, 'type' => 'UI Library'],
+                            ['name' => 'Laravel', 'power' => 80, 'type' => 'Backend Framework']
+                        ];
+                    @endphp
+
+                    @foreach($skills as $skill)
+                    <div class="skill-card group relative p-6 md:p-8 bg-[#0a0f1c]/60 backdrop-blur-md border border-cyan-900/30 rounded-sm hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 transition-all duration-500 overflow-hidden flex items-center justify-between text-left">
+                        
+                        <!-- Tech Accents -->
+                        <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-transparent group-hover:border-cyan-400 transition-colors"></div>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-transparent group-hover:border-cyan-400 transition-colors"></div>
+                        
+                        <div class="flex items-center gap-5 relative z-10 w-full">
+                            <!-- Left Graphic -->
+                            <div class="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full bg-slate-900/80 flex items-center justify-center border border-slate-800 group-hover:bg-cyan-950/40 group-hover:border-cyan-500/50 transition-all relative">
+                                <div class="absolute inset-0 rounded-full border border-dashed border-cyan-900/50 group-hover:border-cyan-500/30 group-hover:animate-[spin_6s_linear_infinite]"></div>
+                                <svg class="w-6 h-6 text-slate-500 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+
+                            <!-- Info -->
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="font-bold text-lg text-slate-300 group-hover:text-white transition-colors tracking-wide">{{ $skill['name'] }}</h4>
+                                    <!-- Status dot -->
+                                    <div class="flex justify-end gap-1.5 items-center">
+                                        <span class="font-mono text-[9px] text-slate-500 group-hover:text-cyan-400 uppercase tracking-widest hidden md:block transition-colors">Active</span>
+                                        <div class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 group-hover:bg-emerald-400 group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)] transition-all"></div>
+                                    </div>
+                                </div>
+                                <p class="font-mono text-[10px] text-cyan-600/70 tracking-widest uppercase mb-3">{{ $skill['type'] }}</p>
+
+                                <!-- Integration Base line -->
+                                <div class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden border border-white/5 relative">
+                                    <div class="h-full bg-blue-500 group-hover:bg-cyan-400 transition-colors shadow-[0_0_10px_rgba(6,182,212,0.8)] relative" style="width: {{ $skill['power'] }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     @endforeach
                 </div>
@@ -213,23 +259,359 @@
                 Active Deployments
             </h3>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 perspective-1000">
                 @foreach($projects as $project)
-                <div class="bg-slate-900/40 border border-white/5 p-9 rounded-sm hover:border-cyan-500/30 transition-all duration-500 cursor-pointer group">
+                <div class="bg-slate-900/40 border border-white/5 p-9 rounded-sm hover:border-cyan-500/30 transition-all duration-500 flex flex-col group">
                     <h4 class="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
                         {{ $project->title }}
                     </h4>
-                    <p class="text-slate-400 text-sm mb-8">
+                    <p class="text-slate-400 text-sm mb-6 flex-1 line-clamp-3 leading-relaxed">
                         {{ $project->description }}
                     </p>
+                    <button 
+                        data-title="{{ $project->title }}"
+                        data-desc="{{ $project->description }}"
+                        data-progress="{{ $project->progress ?? 0 }}"
+                        data-tech="{{ is_array($project->technology) ? implode(', ', $project->technology) : $project->technology }}"
+                        data-repo="{{ $project->repo_url }}"
+                        data-screenshots="{{ json_encode($project->screenshots ?? []) }}"
+                        class="mt-auto px-6 py-2.5 border border-cyan-900/50 bg-cyan-950/30 hover:bg-cyan-900/50 hover:border-cyan-500 text-cyan-300 rounded-sm transition-all text-[10px] font-bold uppercase tracking-widest w-fit view-project-btn">
+                        View Details
+                    </button>
                 </div>
                 @endforeach
+            </div>
+        </section>
+
+        <section id="contact" class="max-w-6xl mx-auto px-6 py-36 relative z-10 border-t border-white/5">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-8 bg-cyan-500"></div>
+                        <span class="font-mono text-[10px] text-cyan-500 uppercase tracking-widest">Establish Link</span>
+                    </div>
+                    <h3 class="text-4xl font-black text-white tracking-tighter uppercase mb-6">Open <span class="text-slate-500">Comms</span></h3>
+                    <p class="text-slate-400 font-mono text-sm leading-relaxed mb-8">Establish a secure satellite link for collaboration or data exchange.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 group cursor-pointer">
+                            <div class="w-10 h-10 flex items-center justify-center border border-white/10 bg-slate-900 group-hover:border-cyan-500 transition-colors">
+                                <i class="fa-solid fa-envelope text-cyan-400"></i>
+                            </div>
+                            <span class="text-sm font-mono text-slate-300">nathan@commander.com</span>
+                        </div>
+                        <div class="flex items-center gap-4 group cursor-pointer">
+                            <div class="w-10 h-10 flex items-center justify-center border border-white/10 bg-slate-900 group-hover:border-cyan-500 transition-colors">
+                                <i class="fa-solid fa-location-dot text-cyan-400"></i>
+                            </div>
+                            <span class="text-sm font-mono text-slate-300">Samarinda, ID // Station-01</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900/40 border border-white/10 p-8 rounded-sm">
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Pilot_Name</label>
+                            <input type="text" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="IDENTIFY...">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Digital_Frequency</label>
+                            <input type="email" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="EMAIL@PROTOCOL.COM">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Signal_Payload</label>
+                            <textarea rows="4" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all resize-none" placeholder="ENCODE MESSAGE..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold uppercase tracking-widest text-[11px] transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                            Transmit Signal
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
 
     </div>
     <x-footer/>
 </div>
+<!-- PROJECT MODAL - ASTRONAUT THEME -->
+    <div id="projectModal" class="fixed inset-0 z-[99999] bg-[#020617]/90 backdrop-blur-md hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500 font-sans">
+        
+        <!-- Deep Space Background overlay inside modal wrapper -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-30">
+            <div class="absolute inset-0" style="background-image: radial-gradient(white 1px, transparent 0); background-size: 50px 50px;"></div>
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500/20 blur-[100px] rounded-full"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-500/20 blur-[120px] rounded-full"></div>
+        </div>
+
+        <!-- Modal Content Container -->
+        <div class="bg-[#0f172a]/95 border border-cyan-500/30 rounded-lg p-0 max-w-5xl w-full shadow-[0_0_80px_rgba(6,182,212,0.15)] relative transform scale-95 transition-all duration-500 flex flex-col max-h-[90vh] overflow-hidden group" id="projectModalContent">
+            
+            <!-- Glowing scan line -->
+            <div class="absolute top-0 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent animate-scanLine opacity-70 z-50 pointer-events-none"></div>
+
+            <!-- Techy Corner Borders -->
+            <div class="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-cyan-400 z-50 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-r-2 border-cyan-400 z-50 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-l-2 border-cyan-400 z-50 pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-cyan-400 z-50 pointer-events-none"></div>
+
+            <!-- Floating Astronaut Graphic Background for Modal -->
+            <div class="absolute -right-20 -top-20 z-0 opacity-10 pointer-events-none mix-blend-screen bg-transparent grayscale group-hover:grayscale-0 group-hover:opacity-20 transition-all duration-1000 hidden md:block">
+                 <img src="astronot.png" alt="Astronaut Background" class="w-96 h-96 object-contain animate-pulse transform -rotate-12 bg-transparent mix-blend-lighten">
+            </div>
+
+            <!-- Header part with cyan gradient -->
+            <div class="bg-linear-to-r from-slate-900 via-cyan-950/20 to-slate-900 border-b border-cyan-900/50 p-6 flex justify-between items-center relative z-20">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full border border-cyan-500/30 bg-slate-900 flex items-center justify-center relative overflow-hidden shadow-[0_0_15px_rgba(6,182,212,0.2)] shrink-0">
+                       <img src="astronot.png" alt="Astronaut" class="w-full h-full object-cover grayscale blur-[1px]">
+                       <div class="absolute inset-0 border border-cyan-400/50 rounded-full animate-ping opacity-30"></div>
+                    </div>
+                    <div>
+                       <h2 class="text-cyan-500 font-mono text-[10px] uppercase tracking-widest mb-1 hidden md:block">Command Center // Mission Data</h2>
+                       <h3 id="modalTitle" class="text-xl md:text-3xl font-black text-white uppercase tracking-tighter">Mission Title</h3>
+                    </div>
+                </div>
+
+                <button onclick="closeProjectModal()" class="text-cyan-500/50 hover:text-cyan-400 transition-colors cursor-pointer bg-slate-900/80 border border-cyan-900/50 w-10 h-10 flex items-center justify-center rounded-sm hover:bg-cyan-950/50 hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] group/btn shrink-0 z-50">
+                    <svg class="w-5 h-5 group-hover/btn:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Modal Body -->
+            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border border-white/5 bg-slate-900/50 p-4 rounded-sm">
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-4 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-500/20 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
+                            Active Deployment
+                        </span>
+                        <span class="px-4 py-1.5 bg-slate-800 text-slate-300 border border-slate-600 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2" id="modalStatusTag">
+                            Status
+                        </span>
+                    </div>
+                    
+                    <a id="modalRepoBtn" href="#" target="_blank" class="flex items-center gap-2 px-6 py-2 bg-slate-800 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-white text-[10px] font-bold uppercase tracking-widest rounded-sm transition-all hidden overflow-hidden relative group/repo w-fit">
+                        <div class="absolute inset-0 w-full h-full bg-linear-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/repo:opacity-100 transition-opacity -z-10"></div>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+                
+                <div class="relative pl-4 md:pl-6 mb-10 border-l-2 border-cyan-500/50">
+                    <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-cyan-400"></div>
+                    <div class="absolute -left-[5px] bottom-0 w-2 h-2 rounded-full bg-cyan-400"></div>
+                    <p id="modalDesc" class="text-slate-300 leading-relaxed text-sm md:text-base font-light text-justify mt-1"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-10">
+                    <!-- Mission Progress Section -->
+                    <div class="bg-slate-900 border border-white/5 p-6 rounded-sm relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+                        <div class="absolute right-4 top-4 opacity-10">
+                            <svg class="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h4 class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest mb-6 relative z-10">Payload Completion Level</h4>
+                        <div class="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-white/10 relative z-10">
+                            <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_5px,rgba(255,255,255,0.05)_5px,rgba(255,255,255,0.05)_10px)] z-10"></div>
+                            <div id="modalProgressBar" class="h-full bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)] transition-all duration-1000 ease-out relative z-20" style="width: 0%"></div>
+                        </div>
+                        <div class="flex justify-between mt-3 font-mono text-[10px] uppercase relative z-10">
+                            <span class="text-slate-500 tracking-widest">Progress</span>
+                            <span id="modalProgressValue" class="text-cyan-400 font-bold border border-cyan-900 bg-cyan-950/50 px-2 py-0.5 rounded-sm">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="bg-slate-900 border border-white/5 p-6 rounded-sm shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] relative z-10">
+                        <h4 class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest mb-4">Tech Modules Assigned</h4>
+                        <div id="modalTechContainer" class="flex flex-wrap gap-2">
+                            <!-- Tech badges will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Screenshots -->
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-8 bg-cyan-900"></div>
+                        <h4 class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest shrink-0">Visual Reconnaissance</h4>
+                        <div class="h-px w-full bg-cyan-900/30 flex-1"></div>
+                    </div>
+                    
+                    <div id="modalScreenshotContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Screenshots will be injected here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.view-project-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openProjectModal(
+                        btn.dataset.title,
+                        btn.dataset.desc,
+                        parseInt(btn.dataset.progress || 0),
+                        btn.dataset.tech,
+                        btn.dataset.repo,
+                        btn.dataset.screenshots
+                    );
+                });
+            });
+        });
+
+        function openProjectModal(title, desc, progress, tech, repo, screenshotsRaw) {
+            let screenshots = [];
+            try {
+                screenshots = JSON.parse(screenshotsRaw) || [];
+            } catch(e) {
+                console.error("Failed to parse screenshots JSON", e);
+            }
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalProgressValue').innerText = progress + '%';
+            
+            // Handle Repository Link
+            const repoBtn = document.getElementById('modalRepoBtn');
+            if (repo && repo.trim() !== '') {
+                repoBtn.href = repo;
+                repoBtn.classList.remove('hidden');
+                repoBtn.classList.add('flex');
+            } else {
+                repoBtn.classList.add('hidden');
+                repoBtn.classList.remove('flex');
+            }
+
+            // Handle Screenshots
+            const screenshotContainer = document.getElementById('modalScreenshotContainer');
+            screenshotContainer.innerHTML = ''; // clear previous
+            
+            if (screenshots.length > 0) {
+                screenshots.forEach(path => {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'aspect-video bg-[#1a1a1a] rounded-md border border-white/5 flex items-center justify-center overflow-hidden group';
+                    wrap.innerHTML = `<img src="/storage/${path}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Project Screenshot">`;
+                    screenshotContainer.appendChild(wrap);
+                });
+            } else {
+                screenshotContainer.innerHTML = `
+                    <div class="col-span-full border border-dashed border-white/10 rounded-md p-8 text-center">
+                        <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No visual data available for this sector</p>
+                    </div>
+                `;
+            }
+            
+            // Set progress tag based on progress
+            const statusTag = document.getElementById('modalStatusTag');
+            if (progress >= 100) {
+                statusTag.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span> MISSION ACCOMPLISHED`;
+                statusTag.className = 'px-4 py-1.5 bg-emerald-950 text-emerald-400 border border-emerald-500/20 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2';
+            } else {
+                statusTag.innerHTML = `ONGOING`;
+                statusTag.className = 'px-4 py-1.5 bg-slate-800 text-slate-300 border border-slate-600 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2';
+            }
+
+            // Split tech and render badges
+            const techContainer = document.getElementById('modalTechContainer');
+            techContainer.innerHTML = ''; // clear previous
+            
+            if (tech && tech.trim() !== '') {
+                const techArray = tech.split(',').map(t => t.trim());
+                techArray.forEach(t => {
+                    const badge = document.createElement('span');
+                    badge.className = 'px-3 py-1 bg-cyan-950/40 border border-cyan-800 text-cyan-500 text-[10px] font-mono uppercase tracking-widest rounded-sm shadow-[0_0_10px_rgba(6,182,212,0.1)]';
+                    badge.innerText = `[${t}]`;
+                    techContainer.appendChild(badge);
+                });
+            } else {
+                techContainer.innerHTML = '<span class="text-slate-600 font-mono text-[10px] uppercase tracking-widest">>> NO DATA</span>';
+            }
+            
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('projectModalContent');
+            const progressBar = document.getElementById('modalProgressBar');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Trigger reflow for transition
+            void modal.offsetWidth;
+            
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            
+            // Animate progress bar from 0 to actual value
+            progressBar.style.width = '0%';
+            setTimeout(() => {
+                progressBar.style.width = (progress || 0) + '%';
+            }, 300);
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('projectModalContent');
+            
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            
+            // Restore body scroll
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.from("#about .bg-slate-900\\/40", {
+                scrollTrigger: { trigger: "#about", start: "top 80%" },
+                y: 50, opacity: 0, duration: 1, ease: "power3.out"
+            });
+
+            // Skills cards use pure CSS animation instead of GSAP for reliability
+
+            gsap.from("#projects .group", {
+                scrollTrigger: { trigger: "#projects", start: "top 85%" },
+                y: 80, opacity: 0, rotationX: -10, transformOrigin: "bottom center",
+                duration: 0.8, stagger: 0.2, ease: "power2.out"
+            });
+
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    gsap.to(btn, {
+                        x: (e.clientX - rect.left - rect.width / 2) * 0.3,
+                        y: (e.clientY - rect.top - rect.height / 2) * 0.3,
+                        duration: 0.3, ease: "power2.out"
+                    });
+                });
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+                });
+            });
+        }
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -277,6 +659,76 @@
         tiltWrapper.addEventListener('touchend', () => {
             tiltWrapper.style.transform = `rotateX(0deg) rotateY(0deg)`;
         });
+
+        // --- GSAP 3D Scroll Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from("#about .flex-1 > div", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        gsap.from("#skills .group", {
+            scrollTrigger: {
+                trigger: "#skills",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            rotationY: 15,
+            transformOrigin: "left center",
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(1.5)"
+        });
+
+        gsap.from("#projects .group", {
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top 80%",
+            },
+            scale: 0.8,
+            opacity: 0,
+            rotationX: -20,
+            transformOrigin: "bottom center",
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            clearProps: "all"
+        });
+
+        // Magnetic Buttons Logic
+        const magneticButtons = document.querySelectorAll('.magnetic-btn');
+        magneticButtons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(btn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.7,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
     });
 </script>
 
@@ -455,6 +907,21 @@
     .animate-asteroidDrift4 { animation: asteroidDrift4 80s linear infinite 10s; }
     
     html { scroll-behavior: smooth; }
+
+    /* Skill card stagger animation */
+    @keyframes skillFadeIn {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .skill-card {
+        animation: skillFadeIn 0.8s ease-out forwards;
+    }
+    .skill-card:nth-child(1) { animation-delay: 0.1s; }
+    .skill-card:nth-child(2) { animation-delay: 0.25s; }
+    .skill-card:nth-child(3) { animation-delay: 0.4s; }
+    .skill-card:nth-child(4) { animation-delay: 0.55s; }
+    .skill-card:nth-child(5) { animation-delay: 0.7s; }
+    .skill-card:nth-child(6) { animation-delay: 0.85s; }
 </style>
 
 @endsection

@@ -15,9 +15,9 @@
 
         <div class="mb-8 border-b border-white/10 pb-6 text-center">
             <div class="flex items-center justify-center gap-3 mb-2">
-                <div class="h-[1px] w-6 bg-cyan-500"></div>
+                <div class="h-px w-6 bg-cyan-500"></div>
                 <span class="font-mono text-[10px] tracking-[0.4em] text-cyan-500 uppercase">Command_Access</span>
-                <div class="h-[1px] w-6 bg-cyan-500"></div>
+                <div class="h-px w-6 bg-cyan-500"></div>
             </div>
             <h2 class="text-3xl font-black text-white tracking-tighter uppercase italic">
                 System <span class="text-slate-500">Login</span>
@@ -34,7 +34,7 @@
             @csrf
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Commander ID [Email]</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Commander ID [Email]</label>
                 <div class="relative">
                     <input type="email" name="email" value="{{ old('email') }}"
                         class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
@@ -49,7 +49,7 @@
             </div>
 
             <div class="space-y-1">
-                <label class="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Security Key [Password]</label>
+                <label class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Security Key [Password]</label>
                 <div class="relative">
                     <input type="password" name="password"
                         class="block w-full bg-slate-900/50 border border-white/10 text-white font-mono text-sm
@@ -67,14 +67,14 @@
                 <label class="flex items-center group cursor-pointer">
                     <input type="checkbox" name="remember"
                         class="rounded bg-slate-900/50 border-white/20 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 transition-colors">
-                    <span class="ml-2 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-500 group-hover:text-cyan-400 transition-colors">
+                    <span class="ml-2 font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">
                         Retain_Session
                     </span>
                 </label>
 
                 @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}"
-                       class="font-mono text-[10px] uppercase tracking-[0.1em] text-cyan-600 hover:text-cyan-400 transition-colors border-b border-transparent hover:border-cyan-400 pb-0.5">
+                       class="font-mono text-[10px] uppercase tracking-widest text-cyan-600 hover:text-cyan-400 transition-colors border-b border-transparent hover:border-cyan-400 pb-0.5">
                         Bypass_Key?
                     </a>
                 @endif
