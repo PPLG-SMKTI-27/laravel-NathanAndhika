@@ -118,14 +118,6 @@ src: "/audio/music.mp3"
 {
 title: "Sency",
 src: "/audio/music2.mp3"
-},
-{
-title: "I Wanna Be Yours",
-src: "/audio/music3.mp3"
-},
-{
-title: "Separuh Nafas Dewa 19",
-src: "/audio/music4.mp3"
 }
 ];
 
