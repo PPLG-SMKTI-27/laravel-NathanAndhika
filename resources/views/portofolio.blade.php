@@ -98,13 +98,6 @@
                     Student <span class="text-cyan-700 mx-1">//</span> 
                     Frontend Pilot
                 </p>
-                <div class="flex flex-wrap justify-center gap-5">
-                    <a href="#projects" class="group relative px-10 py-3.5 overflow-hidden rounded-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] magnetic-btn inline-block">
-                        <div class="absolute inset-0 bg-cyan-600 pointer-events-none"></div>
-                        <span class="relative z-10 text-white font-bold tracking-widest text-xs uppercase pointer-events-none">View Missions</span>
-                    </a>
-                    <a href="#about" class="px-10 py-3.5 border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-white rounded-sm tracking-widest transition-all uppercase text-xs magnetic-btn inline-block">Bio-Data</a>
-                </div>
             </div>
         </section>
 

@@ -32,6 +32,13 @@
                     </svg>
                     <span class="font-mono text-xs font-bold tracking-widest text-slate-300 uppercase">Roblox</span>
                 </a>
+
+                <a href="https://github.com/NathanAndhika" target="_blank" 
+                   class="group relative flex items-center gap-3 px-6 py-3 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-gray-300 hover:bg-slate-800">
+                    <div class="absolute inset-0 bg-gray-300/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <i class="fa-brands fa-github text-gray-300 group-hover:scale-110 transition-transform"></i>
+                    <span class="font-mono text-xs font-bold tracking-widest text-slate-300 uppercase">GitHub</span>
+                </a>
             </div>
 
             <div class="w-full pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 font-mono text-[10px] uppercase tracking-tighter">
