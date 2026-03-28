@@ -10,15 +10,56 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       referrerpolicy="no-referrer" />
 
-      <style>
-    .glow {
-      box-shadow: 0 0 25px rgba(239,68,68,.5);
-    }
-    
-    .space-btn:hover{
-  box-shadow:0 0 12px #22d3ee,0 0 20px #a855f7;
-}
-  </style>
+    <style>
+        :root {
+            --color-primary: #06b6d4; /* Cyan */
+            --color-secondary: #a855f7; /* Purple */
+            --bg-dark: #020617; /* Deep Space */
+        }
+
+        .glow {
+            box-shadow: 0 0 25px rgba(239,68,68,.5);
+        }
+        
+        .space-btn:hover {
+            box-shadow: 0 0 12px #22d3ee, 0 0 20px #a855f7;
+        }
+
+        /* --- STYLING SCROLLBAR TEMA ASTRONOT --- */
+        html { scroll-behavior: smooth; }
+        
+        * { 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--color-primary) var(--bg-dark); 
+        }
+        
+        ::-webkit-scrollbar { 
+            width: 10px; 
+        }
+        
+        ::-webkit-scrollbar-track { 
+            background: var(--bg-dark); 
+            border-left: 1px solid rgba(6, 182, 212, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+            border-radius: 999px; 
+            border: 2px solid var(--bg-dark); 
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #22d3ee, #c084fc); /* Lebih terang saat di-hover */
+        }
+
+        /* --- STYLING TEXT SELECTION --- */
+        ::selection {
+            background: rgba(6, 182, 212, 0.3); /* Transparan Cyan */
+            color: #cffafe; /* Cyan muda */
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+        }
+    </style>
 </head>
 <body class="bg-[#0f0f0f] text-gray-200 scroll-smooth">
     {{-- @include('layouts.navigation') --}}
