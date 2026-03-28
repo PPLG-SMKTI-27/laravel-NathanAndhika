@@ -203,7 +203,7 @@
                     <div class="h-[2px] w-8 md:w-16 bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,1)]"></div>
                 </div>
 
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @php
                         $skills = [
                             ['name' => 'HTML5', 'power' => 95, 'type' => 'Frontend Base'],
@@ -310,20 +310,37 @@
                 </div>
                 
                 <div class="bg-slate-900/40 border border-white/10 p-8 rounded-sm">
-                    <form action="#" method="POST" class="space-y-4">
+                    @if(session('success'))
+                        <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-4 rounded-sm mb-6 flex items-start gap-3 text-[11px] font-mono tracking-wider">
+                            <i class="fa-solid fa-check-circle mt-0.5"></i>
+                            <div>{{ session('success') }}</div>
+                        </div>
+                    @endif
+                    
+                    <div id="ajaxSuccessAlert" class="hidden bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-4 rounded-sm mb-6 flex items-start gap-3 text-[11px] font-mono tracking-wider">
+                        <i class="fa-solid fa-check-circle mt-0.5"></i>
+                        <div id="ajaxSuccessText"></div>
+                    </div>
+                    <div id="ajaxErrorAlert" class="hidden bg-rose-500/10 border border-rose-500/30 text-rose-400 p-4 rounded-sm mb-6 flex items-start gap-3 text-[11px] font-mono tracking-wider">
+                        <i class="fa-solid fa-triangle-exclamation mt-0.5"></i>
+                        <div id="ajaxErrorText"></div>
+                    </div>
+
+                    <form id="contactForm" action="{{ route('messages.store') }}" method="POST" class="space-y-4">
+                        @csrf
                         <div class="space-y-2">
                             <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Pilot_Name</label>
-                            <input type="text" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="IDENTIFY...">
+                            <input type="text" name="name" required class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="IDENTIFY...">
                         </div>
                         <div class="space-y-2">
                             <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Digital_Frequency</label>
-                            <input type="email" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="EMAIL@PROTOCOL.COM">
+                            <input type="email" name="email" required class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all" placeholder="EMAIL@PROTOCOL.COM">
                         </div>
                         <div class="space-y-2">
                             <label class="font-mono text-[10px] uppercase text-slate-500 tracking-widest">Signal_Payload</label>
-                            <textarea rows="4" class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all resize-none" placeholder="ENCODE MESSAGE..."></textarea>
+                            <textarea rows="4" name="message" required class="w-full bg-slate-950/50 border border-white/10 px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 outline-none transition-all resize-none" placeholder="ENCODE MESSAGE..."></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold uppercase tracking-widest text-[11px] transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                        <button id="contactSubmitBtn" type="submit" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold uppercase tracking-widest text-[11px] transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)] flex items-center justify-center">
                             Transmit Signal
                         </button>
                     </form>
@@ -923,5 +940,60 @@
     .skill-card:nth-child(5) { animation-delay: 0.7s; }
     .skill-card:nth-child(6) { animation-delay: 0.85s; }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('contactSubmitBtn');
+            const originalBtnText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Transmitting...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            const successAlert = document.getElementById('ajaxSuccessAlert');
+            const successText = document.getElementById('ajaxSuccessText');
+            const errorAlert = document.getElementById('ajaxErrorAlert');
+            const errorText = document.getElementById('ajaxErrorText');
+
+            successAlert.classList.add('hidden');
+            errorAlert.classList.add('hidden');
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+
+                const data = await response.json();
+
+                if(response.ok) {
+                    successText.innerText = data.message || 'Signal Transmitted Successfully!';
+                    successAlert.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    errorText.innerText = data.message || 'Transmission failed. Please check form data.';
+                    errorAlert.classList.remove('hidden');
+                }
+            } catch(err) {
+                errorText.innerText = 'Network error during transmission. Please try again.';
+                errorAlert.classList.remove('hidden');
+            } finally {
+                btn.innerHTML = originalBtnText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        });
+    }
+});
+</script>
 
 @endsection

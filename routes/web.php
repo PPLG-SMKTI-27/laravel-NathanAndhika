@@ -6,10 +6,13 @@ use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use App\Models\ProjectHistory;
 
+use App\Http\Controllers\MessageController;
+
 // Route::get('/', function () {
 //     return view('portofolio');
 // });
 Route::get('/', [ProjectController::class, 'portfolio'])->name('portfolio');
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
 
 
