@@ -88,18 +88,119 @@
             </div>
         </div>
 
-        <section id="home" class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden z-10">
-            <div class="relative z-10 animate-fadeUp">
-                <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none">
-                    <span class="text-white">I'M</span>
-                    <span class="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500 block">Natsssss</span>
-                </h2>
-                <p class="text-slate-400 max-w-2xl mx-auto mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4">
-                    Student <span class="text-cyan-700 mx-1">//</span> 
-                    Frontend Pilot
-                </p>
+        <section id="home" class="relative min-h-[80vh] flex items-center justify-center px-6 overflow-hidden z-10">
+            <div class="relative z-10 max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <!-- Text Section -->
+                <div class="md:w-1/2 text-left animate-fadeUp">
+                    <h2 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-tight flex flex-col">
+                        <div class="flex items-end min-h-[1.2em]">
+                            <span id="typewriter-text-1" class="inline-block text-white pb-2 lg:pb-4 tracking-normal"></span>
+                            <span id="cursor-1" class="w-[0.1em] h-[0.8em] bg-cyan-400 animate-pulse ml-2 mb-4 lg:mb-6"></span>
+                        </div>
+                        <div class="flex items-end min-h-[1.2em] mt-2">
+                            <span id="typewriter-text-2" class="inline-block text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500 pb-2 lg:pb-4 tracking-normal"></span>
+                            <span id="cursor-2" class="w-[0.1em] h-[0.8em] bg-cyan-400 animate-pulse ml-2 mb-4 lg:mb-6 hidden"></span>
+                        </div>
+                    </h2>
+                    <p class="text-slate-400 w-full md:max-w-lg mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4 text-left">
+                        Student <span class="text-cyan-700 mx-1">//</span> 
+                        Frontend Pilot
+                    </p>
+                </div>
+
+                <!-- Image Section -->
+                <div class="md:w-1/2 flex justify-center md:justify-end animate-fadeUp" style="animation-delay: 0.3s;">
+                    <div class="relative group">
+                        <!-- Holographic Frame Effect -->
+                        <div class="absolute -inset-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+                        
+                        <!-- Memuat foto profile (pastikan file bernama foto.jpeg dan diletakkan di folder public) -->
+                        <div class="relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 shadow-[0_0_30px_rgba(6,182,212,0.4)]">
+                            <img src="/foto.jpeg" alt="Natsssss" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
+                            
+                            <!-- Decorative Elements -->
+                            <div class="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-cyan-400"></div>
+                            <div class="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-cyan-400"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const textPart1 = "I'M";
+                const textPart2 = "Natsssss";
+                const typeSpeed = 150; 
+                const deleteSpeed = 100;
+                const delayBetweenLoops = 2500;
+                
+                const element1 = document.getElementById('typewriter-text-1');
+                const element2 = document.getElementById('typewriter-text-2');
+                const cursor1 = document.getElementById('cursor-1');
+                const cursor2 = document.getElementById('cursor-2');
+                
+                function startAnimation() {
+                    element1.innerHTML = '';
+                    element2.innerHTML = '';
+                    cursor1.classList.remove('hidden');
+                    cursor2.classList.add('hidden');
+                    
+                    let i = 0;
+                    function typeWriter1() {
+                        if (i < textPart1.length) {
+                            element1.innerHTML += textPart1.charAt(i);
+                            i++;
+                            setTimeout(typeWriter1, typeSpeed);
+                        } else {
+                            cursor1.classList.add('hidden');
+                            cursor2.classList.remove('hidden');
+                            setTimeout(typeWriter2, typeSpeed);
+                        }
+                    }
+                    
+                    let j = 0;
+                    function typeWriter2() {
+                        if (j < textPart2.length) {
+                            j++;
+                            element2.innerHTML = textPart2.substring(0, j) + '&nbsp;';
+                            setTimeout(typeWriter2, typeSpeed);
+                        } else {
+                            setTimeout(deleteWriter2, delayBetweenLoops);
+                        }
+                    }
+                    
+                    function deleteWriter2() {
+                        if (j > 0) {
+                            j--;
+                            element2.innerHTML = textPart2.substring(0, j) + '&nbsp;';
+                            setTimeout(deleteWriter2, deleteSpeed);
+                        } else {
+                            element2.innerHTML = '';
+                            cursor1.classList.remove('hidden');
+                            cursor2.classList.add('hidden');
+                            setTimeout(deleteWriter1, deleteSpeed);
+                        }
+                    }
+                    
+                    function deleteWriter1() {
+                        if (i > 0) {
+                            element1.innerHTML = textPart1.substring(0, i - 1);
+                            i--;
+                            setTimeout(deleteWriter1, deleteSpeed);
+                        } else {
+                            setTimeout(typeWriter1, typeSpeed);
+                        }
+                    }
+                    
+                    typeWriter1();
+                }
+
+                setTimeout(startAnimation, 800);
+            });
+        </script>
 
         <section id="about" class="max-w-6xl mx-auto px-6 py-24 md:py-36 relative z-10">
             <div class="flex flex-col md:flex-row gap-12 items-center md:items-start">
@@ -249,7 +350,7 @@
 
         <section id="projects" class="max-w-6xl mx-auto px-6 py-36 relative z-10">
             <h3 class="text-4xl font-black uppercase tracking-tighter text-white mb-12">
-                Active Deployments
+                My Project
             </h3>
 
             <div class="grid md:grid-cols-3 gap-8 perspective-1000">
@@ -396,7 +497,7 @@
                     <div class="flex flex-wrap gap-4">
                         <span class="px-4 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-500/20 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
-                            Active Deployment
+                            My Project
                         </span>
                         <span class="px-4 py-1.5 bg-slate-800 text-slate-300 border border-slate-600 rounded-sm text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2" id="modalStatusTag">
                             Status
