@@ -387,69 +387,87 @@
                         <div class="h-[2px] w-8 md:w-16 bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,1)]"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="space-y-16">
                         @php
-                            $skills = [
-                                ['name' => 'HTML', 'power' => 95, 'type' => 'Frontend Base', 'icon' => '<i class="fa-brands fa-html5 text-3xl text-slate-500 group-hover:text-[#e34f26] transition-colors z-10"></i>'],
-                                ['name' => 'CSS', 'power' => 90, 'type' => 'Styling Engine', 'icon' => '<i class="fa-brands fa-css3-alt text-3xl text-slate-500 group-hover:text-[#1572b6] transition-colors z-10"></i>'],
-                                ['name' => 'JavaScript', 'power' => 85, 'type' => 'Client Logic', 'icon' => '<i class="fa-brands fa-js text-3xl text-slate-500 group-hover:text-[#f7df1e] transition-colors z-10"></i>'],
-                                ['name' => 'Tailwind', 'power' => 95, 'type' => 'Utility Framework', 'icon' => '<svg class="w-8 h-8 text-slate-500 group-hover:text-[#38bdf8] transition-colors z-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,5.782,14.976,4.4,12.001,4.8z M3.601,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,12.982,8.976,11.6,3.601,12z"/></svg>'],
-                                ['name' => 'React', 'power' => 70, 'type' => 'UI Library', 'icon' => '<i class="fa-brands fa-react text-3xl text-slate-500 group-hover:text-[#61dafb] transition-colors z-10"></i>'],
-                                ['name' => 'Laravel', 'power' => 80, 'type' => 'Backend Framework', 'icon' => '<i class="fa-brands fa-laravel text-3xl text-slate-500 group-hover:text-[#ff2d20] transition-colors z-10"></i>']
+                            $skillCategories = [
+                                'Frontend' => [
+                                    ['name' => 'HTML', 'power' => 95, 'type' => 'Frontend Base', 'icon' => '<i class="fa-brands fa-html5 text-3xl text-slate-500 group-hover:text-[#e34f26] transition-colors z-10"></i>'],
+                                    ['name' => 'CSS', 'power' => 90, 'type' => 'Styling Engine', 'icon' => '<i class="fa-brands fa-css3-alt text-3xl text-slate-500 group-hover:text-[#1572b6] transition-colors z-10"></i>'],
+                                    ['name' => 'JavaScript', 'power' => 85, 'type' => 'Client Logic', 'icon' => '<i class="fa-brands fa-js text-3xl text-slate-500 group-hover:text-[#f7df1e] transition-colors z-10"></i>'],
+                                    ['name' => 'Tailwind', 'power' => 95, 'type' => 'Utility Framework', 'icon' => '<svg class="w-8 h-8 text-slate-500 group-hover:text-[#38bdf8] transition-colors z-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,5.782,14.976,4.4,12.001,4.8z M3.601,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,12.982,8.976,11.6,3.601,12z"/></svg>'],
+                                    ['name' => 'React', 'power' => 70, 'type' => 'UI Library', 'icon' => '<i class="fa-brands fa-react text-3xl text-slate-500 group-hover:text-[#61dafb] transition-colors z-10"></i>'],
+                                ],
+                                'Backend' => [
+                                    ['name' => 'PHP', 'power' => 80, 'type' => 'Server Logic', 'icon' => '<i class="fa-brands fa-php text-3xl text-slate-500 group-hover:text-[#777bb4] transition-colors z-10"></i>'],
+                                    ['name' => 'Laravel', 'power' => 80, 'type' => 'Backend Framework', 'icon' => '<i class="fa-brands fa-laravel text-3xl text-slate-500 group-hover:text-[#ff2d20] transition-colors z-10"></i>'],
+                                    ['name' => 'MySQL', 'power' => 75, 'type' => 'Database', 'icon' => '<i class="fa-solid fa-database text-3xl text-slate-500 group-hover:text-[#4479a1] transition-colors z-10"></i>'],
+                                ],
+                                'Tools & Others' => [
+                                    ['name' => 'VSCode', 'power' => 90, 'type' => 'Code Editor', 'icon' => '<i class="fa-solid fa-code text-3xl text-slate-500 group-hover:text-[#007acc] transition-colors z-10"></i>'],
+                                    ['name' => 'Antigravity AI', 'power' => 85, 'type' => 'AI Assistant', 'icon' => '<svg class="w-8 h-8 text-slate-500 group-hover:text-[#06b6d4] transition-colors z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>'],
+                                    ['name' => 'Git', 'power' => 85, 'type' => 'Version Control', 'icon' => '<i class="fa-brands fa-git-alt text-3xl text-slate-500 group-hover:text-[#f34f29] transition-colors z-10"></i>'],
+                                ]
                             ];
                         @endphp
 
-                        @foreach($skills as $skill)
-                            <div
-                                class="skill-card group relative p-6 md:p-8 bg-[#0a0f1c]/60 backdrop-blur-md border border-cyan-900/30 rounded-sm hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 transition-all duration-500 overflow-hidden flex items-center justify-between text-left">
-
-                                <!-- Tech Accents -->
-                                <div
-                                    class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-transparent group-hover:border-cyan-400 transition-colors">
-                                </div>
-                                <div
-                                    class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-transparent group-hover:border-cyan-400 transition-colors">
-                                </div>
-
-                                <div class="flex items-center gap-5 relative z-10 w-full">
-                                    <!-- Left Graphic -->
-                                    <div
-                                        class="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full bg-slate-900/80 flex items-center justify-center border border-slate-800 group-hover:bg-cyan-950/40 group-hover:border-cyan-500/50 transition-all relative">
+                        @foreach($skillCategories as $categoryName => $skills)
+                            <div class="mb-10 text-left">
+                                <h4 class="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-cyan-500 pl-4 tracking-wide">{{ $categoryName }}</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    @foreach($skills as $skill)
                                         <div
-                                            class="absolute inset-0 rounded-full border border-dashed border-cyan-900/50 group-hover:border-cyan-500/30 group-hover:animate-[spin_6s_linear_infinite]">
-                                        </div>
-                                        {!! $skill['icon'] !!}
-                                    </div>
+                                            class="skill-card group relative p-6 md:p-8 bg-[#0a0f1c]/60 backdrop-blur-md border border-cyan-900/30 rounded-sm hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 transition-all duration-500 overflow-hidden flex items-center justify-between text-left">
 
-                                    <!-- Info -->
-                                    <div class="flex-1">
-                                        <div class="flex items-center justify-between mb-1">
-                                            <h4
-                                                class="font-bold text-lg text-slate-300 group-hover:text-white transition-colors tracking-wide">
-                                                {{ $skill['name'] }}
-                                            </h4>
-                                            <!-- Status dot -->
-                                            <div class="flex justify-end gap-1.5 items-center">
-                                                <span
-                                                    class="font-mono text-[9px] text-slate-500 group-hover:text-cyan-400 uppercase tracking-widest hidden md:block transition-colors">Active</span>
+                                            <!-- Tech Accents -->
+                                            <div
+                                                class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-transparent group-hover:border-cyan-400 transition-colors">
+                                            </div>
+                                            <div
+                                                class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-transparent group-hover:border-cyan-400 transition-colors">
+                                            </div>
+
+                                            <div class="flex items-center gap-5 relative z-10 w-full">
+                                                <!-- Left Graphic -->
                                                 <div
-                                                    class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 group-hover:bg-emerald-400 group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)] transition-all">
+                                                    class="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full bg-slate-900/80 flex items-center justify-center border border-slate-800 group-hover:bg-cyan-950/40 group-hover:border-cyan-500/50 transition-all relative">
+                                                    <div
+                                                        class="absolute inset-0 rounded-full border border-dashed border-cyan-900/50 group-hover:border-cyan-500/30 group-hover:animate-[spin_6s_linear_infinite]">
+                                                    </div>
+                                                    {!! $skill['icon'] !!}
+                                                </div>
+
+                                                <!-- Info -->
+                                                <div class="flex-1">
+                                                    <div class="flex items-center justify-between mb-1">
+                                                        <h4
+                                                            class="font-bold text-lg text-slate-300 group-hover:text-white transition-colors tracking-wide">
+                                                            {{ $skill['name'] }}
+                                                        </h4>
+                                                        <!-- Status dot -->
+                                                        <div class="flex justify-end gap-1.5 items-center">
+                                                            <span
+                                                                class="font-mono text-[9px] text-slate-500 group-hover:text-cyan-400 uppercase tracking-widest hidden md:block transition-colors">Active</span>
+                                                            <div
+                                                                class="w-1.5 h-1.5 rounded-full bg-emerald-500/50 group-hover:bg-emerald-400 group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)] transition-all">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="font-mono text-[10px] text-cyan-600/70 tracking-widest uppercase mb-3">
+                                                        {{ $skill['type'] }}
+                                                    </p>
+
+                                                    <!-- Integration Base line -->
+                                                    <div
+                                                        class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden border border-white/5 relative">
+                                                        <div class="h-full bg-blue-500 group-hover:bg-cyan-400 transition-colors shadow-[0_0_10px_rgba(6,182,212,0.8)] relative"
+                                                            style="width: {{ $skill['power'] }}%;"></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <p class="font-mono text-[10px] text-cyan-600/70 tracking-widest uppercase mb-3">
-                                            {{ $skill['type'] }}
-                                        </p>
 
-                                        <!-- Integration Base line -->
-                                        <div
-                                            class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden border border-white/5 relative">
-                                            <div class="h-full bg-blue-500 group-hover:bg-cyan-400 transition-colors shadow-[0_0_10px_rgba(6,182,212,0.8)] relative"
-                                                style="width: {{ $skill['power'] }}%;"></div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-
                             </div>
                         @endforeach
                     </div>
@@ -736,6 +754,8 @@
         </div>
     </div>
 
+
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.view-project-btn').forEach(btn => {
@@ -860,6 +880,8 @@
                 modal.classList.remove('flex');
             }, 300);
         }
+
+
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
