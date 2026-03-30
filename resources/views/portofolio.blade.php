@@ -88,18 +88,19 @@
     <div class="animate-portfolioAppear">
         <x-navbar />
 
-        <div class="bg-[#020617] text-slate-200 relative overflow-hidden font-sans selection:bg-cyan-500/30 pt-20">
+        <div
+            class="portfolio-main-bg bg-[#020617] text-slate-200 relative overflow-hidden font-sans selection:bg-cyan-500/30 pt-20">
 
-            <div class="absolute inset-0 opacity-10 pointer-events-none"
+            <div class="portfolio-stars absolute inset-0 opacity-10 pointer-events-none"
                 style="background-image: radial-gradient(white 1px, transparent 0); background-size: 50px 50px;"></div>
             <div
-                class="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vw] bg-purple-900/10 rounded-full blur-[130px] pointer-events-none animate-pulse">
+                class="portfolio-nebula-1 absolute top-[-10%] left-[-5%] w-[60vw] h-[60vw] bg-purple-900/10 rounded-full blur-[130px] pointer-events-none animate-pulse">
             </div>
             <div
-                class="absolute bottom-[0%] right-[-5%] w-[50vw] h-[50vw] bg-cyan-900/10 rounded-full blur-[110px] pointer-events-none">
+                class="portfolio-nebula-2 absolute bottom-[0%] right-[-5%] w-[50vw] h-[50vw] bg-cyan-900/10 rounded-full blur-[110px] pointer-events-none">
             </div>
 
-            <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-80">
+            <div class="space-rockets absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-80">
                 <div class="absolute animate-rocketFly1">
                     <svg class="w-16 h-16 text-cyan-500/30 blur-[1px]" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -112,7 +113,7 @@
                             d="M13.139 2.139a1.933 1.933 0 00-2.278 0 16.324 16.324 0 00-4.012 5.258 1.127 1.127 0 00.3 1.362l.83.693a1.127 1.127 0 01.3 1.362 16.324 16.324 0 00-1.446 6.307 1.127 1.127 0 001.127 1.127h2.08a.376.376 0 01.376.376v2.871a.752.752 0 001.284.532l1.625-1.625a.752.752 0 00.22-.532V18.63a.376.376 0 01.376-.376h2.08a1.127 1.127 0 001.127-1.127 16.324 16.324 0 00-1.446-6.307 1.127 1.127 0 01.3-1.362l.83-.693a1.127 1.127 0 00.3-1.362 16.324 16.324 0 00-4.012-5.258zM12 11.25a1.875 1.875 0 110-3.75 1.875 1.875 0 010 3.75z" />
                     </svg>
                 </div>
-                <div class="absolute animate-asteroidDrift3">
+                <div class="space-asteroids absolute animate-asteroidDrift3">
                     <svg class="w-24 h-24 text-slate-800/40" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M11 1l7 3 5 9-2 9-9 1-9-5-2-9 4-7z" />
                     </svg>
@@ -145,7 +146,7 @@
                             </div>
                         </h2>
                         <p
-                            class="text-slate-400 w-full md:max-w-lg mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4 text-left">
+                            class="hero-subtitle text-slate-400 w-full md:max-w-lg mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4 text-left">
                             Student <span class="text-cyan-700 mx-1">//</span>
                             Frontend Pilot
                         </p>
@@ -156,18 +157,22 @@
                         <div class="relative group">
                             <!-- Holographic Frame Effect -->
                             <div
-                                class="absolute -inset-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition duration-700 animate-pulse">
+                                class="photo-glow absolute -inset-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition duration-700 animate-pulse">
                             </div>
 
                             <!-- Memuat foto profile (pastikan file bernama foto.jpeg dan diletakkan di folder public) -->
                             <div
-                                class="relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 shadow-[0_0_30px_rgba(6,182,212,0.4)]">
+                                class="photo-frame relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 shadow-[0_0_30px_rgba(6,182,212,0.4)]">
                                 <img src="/foto.jpeg" alt="Natsssss"
                                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
 
                                 <!-- Decorative Elements -->
-                                <div class="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-cyan-400"></div>
-                                <div class="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-cyan-400"></div>
+                                <div
+                                    class="photo-corner absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-cyan-400">
+                                </div>
+                                <div
+                                    class="photo-corner absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-cyan-400">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -263,8 +268,8 @@
                                 class="w-full h-full relative transition-transform duration-700 transform-style-3d">
 
                                 <div
-                                    class="absolute inset-0 bg-slate-900 border border-cyan-500/50 rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.2)] backface-hidden flex flex-col items-center p-5 overflow-hidden">
-                                    <div class="absolute inset-0 opacity-20"
+                                    class="id-card-front absolute inset-0 bg-slate-900 border border-cyan-500/50 rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.2)] backface-hidden flex flex-col items-center p-5 overflow-hidden">
+                                    <div class="id-card-grid absolute inset-0 opacity-20"
                                         style="background-image: linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px); background-size: 20px 20px;">
                                     </div>
 
@@ -309,7 +314,7 @@
                                 </div>
 
                                 <div
-                                    class="absolute inset-0 bg-slate-900 border border-cyan-500/50 rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.2)] backface-hidden rotate-y-180 flex flex-col items-center justify-center p-6 text-center">
+                                    class="id-card-back absolute inset-0 bg-slate-900 border border-cyan-500/50 rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.2)] backface-hidden rotate-y-180 flex flex-col items-center justify-center p-6 text-center">
                                     <div
                                         class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(6,182,212,0.03)_10px,rgba(6,182,212,0.03)_20px)]">
                                     </div>
@@ -346,7 +351,7 @@
                         </div>
 
                         <div
-                            class="p-9 bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-sm relative overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.3)]">
+                            class="bio-card-bg p-9 bg-slate-900/60 backdrop-blur-sm border border-white/5 rounded-sm relative overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.3)]">
                             <div
                                 class="absolute top-0 left-0 w-full h-[2px] bg-linear-to-r from-transparent via-cyan-400 to-transparent animate-scanLine opacity-70">
                             </div>
@@ -412,7 +417,9 @@
 
                         @foreach($skillCategories as $categoryName => $skills)
                             <div class="mb-10 text-left">
-                                <h4 class="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-cyan-500 pl-4 tracking-wide">{{ $categoryName }}</h4>
+                                <h4
+                                    class="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-cyan-500 pl-4 tracking-wide">
+                                    {{ $categoryName }}</h4>
                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     @foreach($skills as $skill)
                                         <div
@@ -452,7 +459,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <p class="font-mono text-[10px] text-cyan-600/70 tracking-widest uppercase mb-3">
+                                                    <p
+                                                        class="font-mono text-[10px] text-cyan-600/70 tracking-widest uppercase mb-3">
                                                         {{ $skill['type'] }}
                                                     </p>
 
@@ -590,18 +598,19 @@
     </div>
     <!-- PROJECT MODAL - ASTRONAUT THEME -->
     <div id="projectModal"
-        class="fixed inset-0 z-[99999] bg-[#020617]/90 backdrop-blur-md hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500 font-sans">
+        class="fixed inset-0 z-[99999] bg-[#020617]/95 md:backdrop-blur-md hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500 font-sans">
 
         <!-- Deep Space Background overlay inside modal wrapper -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-30">
-            <div class="absolute inset-0"
+            <div class="absolute inset-0 modal-stars"
                 style="background-image: radial-gradient(white 1px, transparent 0); background-size: 50px 50px;"></div>
-            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500/20 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-500/20 blur-[120px] rounded-full"></div>
+            <!-- GPU intense effects hidden on mobile -->
+            <div class="hidden md:block absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500/20 blur-[100px] rounded-full"></div>
+            <div class="hidden md:block absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-500/20 blur-[120px] rounded-full"></div>
         </div>
 
         <!-- Modal Content Container -->
-        <div class="bg-[#0f172a]/95 border border-cyan-500/30 rounded-lg p-0 max-w-5xl w-full shadow-[0_0_80px_rgba(6,182,212,0.15)] relative transform scale-95 transition-all duration-500 flex flex-col max-h-[90vh] overflow-hidden group"
+        <div class="bg-[#0f172a]/95 border border-cyan-500/30 rounded-lg p-0 max-w-5xl w-full shadow-[0_0_80px_rgba(6,182,212,0.15)] relative transform md:scale-95 transition-all duration-500 flex flex-col max-h-[90vh] overflow-hidden group"
             id="projectModalContent">
 
             <!-- Glowing scan line -->
@@ -658,7 +667,7 @@
             </div>
 
             <!-- Scrollable Modal Body -->
-            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10">
+            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10 overscroll-contain" style="-webkit-overflow-scrolling: touch; will-change: scroll-position;">
 
                 <div
                     class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border border-white/5 bg-slate-900/50 p-4 rounded-sm">
@@ -808,10 +817,10 @@
                 });
             } else {
                 screenshotContainer.innerHTML = `
-                            <div class="col-span-full border border-dashed border-white/10 rounded-md p-8 text-center">
-                                <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No visual data available for this sector</p>
-                            </div>
-                        `;
+                                <div class="col-span-full border border-dashed border-white/10 rounded-md p-8 text-center">
+                                    <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No visual data available for this sector</p>
+                                </div>
+                            `;
             }
 
             // Set progress tag based on progress
@@ -851,8 +860,8 @@
             void modal.offsetWidth;
 
             modal.classList.remove('opacity-0');
-            modalContent.classList.remove('scale-95');
-            modalContent.classList.add('scale-100');
+            modalContent.classList.remove('md:scale-95');
+            modalContent.classList.add('md:scale-100');
 
             // Animate progress bar from 0 to actual value
             progressBar.style.width = '0%';
@@ -869,8 +878,8 @@
             const modalContent = document.getElementById('projectModalContent');
 
             modal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('md:scale-100');
+            modalContent.classList.add('md:scale-95');
 
             // Restore body scroll
             document.body.style.overflow = '';
