@@ -92,16 +92,19 @@
         style="display: none;">
 
         {{-- Sky gradient background --}}
-        <div class="absolute inset-0 z-0" style="background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 30%, #bae6fd 60%, #e0f2fe 100%);">
+        <div class="absolute inset-0 z-0"
+            style="background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 30%, #bae6fd 60%, #e0f2fe 100%);">
         </div>
 
         {{-- Animated sun --}}
         <div class="absolute z-[1] light-intro-sun" style="top: 8%; right: 12%;">
-            <div class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-yellow-300 shadow-[0_0_80px_30px_rgba(253,224,71,0.6),0_0_120px_60px_rgba(253,224,71,0.3)]">
+            <div
+                class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-yellow-300 shadow-[0_0_80px_30px_rgba(253,224,71,0.6),0_0_120px_60px_rgba(253,224,71,0.3)]">
             </div>
             {{-- Sun rays --}}
             <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-yellow-300/30 animate-ping" style="animation-duration: 3s;"></div>
+                <div class="w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-yellow-300/30 animate-ping"
+                    style="animation-duration: 3s;"></div>
             </div>
         </div>
 
@@ -109,29 +112,66 @@
         <div class="absolute inset-0 z-[2] overflow-hidden">
             <style>
                 @keyframes randomFloat1 {
-                    0% { transform: translate(-10px, 5px) scale(0.95); }
-                    50% { transform: translate(30px, -15px) scale(1.05); }
-                    100% { transform: translate(50px, 15px) scale(1.0); }
+                    0% {
+                        transform: translate(-10px, 5px) scale(0.95);
+                    }
+
+                    50% {
+                        transform: translate(30px, -15px) scale(1.05);
+                    }
+
+                    100% {
+                        transform: translate(50px, 15px) scale(1.0);
+                    }
                 }
+
                 @keyframes randomFloat2 {
-                    0% { transform: translate(20px, -15px) scale(1.05); }
-                    50% { transform: translate(-25px, 15px) scale(0.98); }
-                    100% { transform: translate(-40px, -5px) scale(1.0); }
+                    0% {
+                        transform: translate(20px, -15px) scale(1.05);
+                    }
+
+                    50% {
+                        transform: translate(-25px, 15px) scale(0.98);
+                    }
+
+                    100% {
+                        transform: translate(-40px, -5px) scale(1.0);
+                    }
                 }
+
                 @keyframes randomFloat3 {
-                    0% { transform: translate(10px, 15px); }
-                    50% { transform: translate(-30px, -20px) scale(1.08); }
-                    100% { transform: translate(15px, 5px) scale(0.95); }
+                    0% {
+                        transform: translate(10px, 15px);
+                    }
+
+                    50% {
+                        transform: translate(-30px, -20px) scale(1.08);
+                    }
+
+                    100% {
+                        transform: translate(15px, 5px) scale(0.95);
+                    }
                 }
+
                 @keyframes randomFloat4 {
-                    0% { transform: translate(-20px, -10px) scale(1.0); }
-                    50% { transform: translate(40px, 20px) scale(1.05); }
-                    100% { transform: translate(-10px, -15px) scale(0.9); }
+                    0% {
+                        transform: translate(-20px, -10px) scale(1.0);
+                    }
+
+                    50% {
+                        transform: translate(40px, 20px) scale(1.05);
+                    }
+
+                    100% {
+                        transform: translate(-10px, -15px) scale(0.9);
+                    }
                 }
             </style>
-            
+
             {{-- Cloud 1 --}}
-            <svg class="light-intro-cloud1 absolute" style="top: 5%; left: 0%; animation: randomFloat1 9s ease-in-out forwards;" width="220" height="100" viewBox="0 0 220 100">
+            <svg class="light-intro-cloud1 absolute"
+                style="top: 5%; left: 0%; animation: randomFloat1 9s ease-in-out forwards;" width="220" height="100"
+                viewBox="0 0 220 100">
                 <g fill="white" opacity="0.9">
                     <ellipse cx="70" cy="60" rx="70" ry="35" />
                     <ellipse cx="120" cy="50" rx="50" ry="30" />
@@ -140,7 +180,9 @@
                 </g>
             </svg>
             {{-- Cloud 2 --}}
-            <svg class="light-intro-cloud2 absolute" style="top: 10%; right: 5%; animation: randomFloat2 8s ease-in-out forwards;" width="180" height="80" viewBox="0 0 180 80">
+            <svg class="light-intro-cloud2 absolute"
+                style="top: 10%; right: 5%; animation: randomFloat2 8s ease-in-out forwards;" width="180" height="80"
+                viewBox="0 0 180 80">
                 <g fill="white" opacity="0.7">
                     <ellipse cx="60" cy="45" rx="55" ry="28" />
                     <ellipse cx="110" cy="38" rx="45" ry="25" />
@@ -148,7 +190,9 @@
                 </g>
             </svg>
             {{-- Cloud 3 --}}
-            <svg class="light-intro-cloud3 absolute" style="top: 15%; left: 35%; animation: randomFloat3 7s ease-in-out forwards;" width="120" height="60" viewBox="0 0 120 60">
+            <svg class="light-intro-cloud3 absolute"
+                style="top: 15%; left: 35%; animation: randomFloat3 7s ease-in-out forwards;" width="120" height="60"
+                viewBox="0 0 120 60">
                 <g fill="white" opacity="0.6">
                     <ellipse cx="40" cy="35" rx="35" ry="20" />
                     <ellipse cx="75" cy="30" rx="30" ry="18" />
@@ -156,7 +200,9 @@
                 </g>
             </svg>
             {{-- Cloud 4 --}}
-            <svg class="light-intro-cloud4 absolute" style="top: 8%; right: 35%; animation: randomFloat4 10s ease-in-out forwards;" width="160" height="70" viewBox="0 0 160 70">
+            <svg class="light-intro-cloud4 absolute"
+                style="top: 8%; right: 35%; animation: randomFloat4 10s ease-in-out forwards;" width="160" height="70"
+                viewBox="0 0 160 70">
                 <g fill="white" opacity="0.8">
                     <ellipse cx="50" cy="40" rx="45" ry="25" />
                     <ellipse cx="100" cy="35" rx="40" ry="22" />
@@ -170,24 +216,31 @@
 
             {{-- Contrail / vapor trail --}}
             <div class="light-intro-contrail absolute" style="top: 46%; left: 0; width: 100%; height: 4px;">
-                <div class="h-full rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.9) 60%, transparent 100%); filter: blur(2px);"></div>
+                <div class="h-full rounded-full"
+                    style="background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.9) 60%, transparent 100%); filter: blur(2px);">
+                </div>
             </div>
 
             {{-- Airplane SVG (flies full left-to-right) --}}
             <div class="light-intro-plane absolute" style="top: 35%; left: -150px;">
-                <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)]">
+                <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)]">
                     <!-- Right Wing (Back) -->
                     <path d="M 60 28 L 45 15 L 65 15 L 80 28 Z" fill="#cbd5e1" />
                     <rect x="52" y="22" width="12" height="5" rx="2" fill="#94a3b8" />
-                    
+
                     <!-- Fuselage (Body) -->
-                    <path d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z" fill="#ffffff" />
+                    <path
+                        d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z"
+                        fill="#ffffff" />
                     <!-- Shading on bottom of fuselage -->
-                    <path d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z" fill="#e2e8f0" />
-                    
+                    <path
+                        d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z"
+                        fill="#e2e8f0" />
+
                     <!-- Tail -->
                     <path d="M 20 25 L 10 5 L 35 15 L 42 23 Z" fill="#0ea5e9" />
-                    <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5"/>
+                    <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5" />
                     <!-- Horizontal Stabilizer (tail wing) -->
                     <path d="M 25 32 L 15 25 L 28 25 L 35 32 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5" />
 
@@ -198,7 +251,7 @@
                     <circle cx="81" cy="42" r="3.5" fill="#334155" />
                     <!-- Wingtip -->
                     <path d="M 72 55 L 75 48 L 76 55 Z" fill="#0ea5e9" />
-                    
+
                     <!-- Details & Trim -->
                     <!-- Blue Stripe -->
                     <line x1="20" y1="32" x2="135" y2="32" stroke="#0ea5e9" stroke-width="1.5" />
@@ -212,7 +265,7 @@
                     <circle cx="70" cy="28" r="1.5" fill="#475569" />
                     <circle cx="60" cy="28" r="1.5" fill="#475569" />
                     <circle cx="50" cy="28" r="1.5" fill="#475569" />
-                    
+
                     <!-- Nose cone line -->
                     <path d="M 142 27 C 141 29, 141 33, 142 35" stroke="#cbd5e1" stroke-width="0.5" fill="none" />
                 </svg>
@@ -222,11 +275,13 @@
         {{-- Text "HELLO EVERYBODY" appears behind the plane at center --}}
         <div class="absolute inset-0 z-[4] flex flex-col items-center justify-center">
             <div class="light-intro-text opacity-0 flex flex-col items-center gap-2">
-                <h1 class="text-6xl md:text-9xl font-black tracking-tight text-sky-700 drop-shadow-[0_3px_15px_rgba(14,165,233,0.3)] leading-none">
+                <h1
+                    class="text-6xl md:text-9xl font-black tracking-tight text-sky-700 drop-shadow-[0_3px_15px_rgba(14,165,233,0.3)] leading-none">
                     HELLO
                 </h1>
                 <h1 class="text-6xl md:text-9xl font-black tracking-tight leading-none">
-                    <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #0284c7, #6366f1, #8b5cf6);">EVERYBODY</span>
+                    <span class="text-transparent bg-clip-text"
+                        style="background-image: linear-gradient(90deg, #0284c7, #6366f1, #8b5cf6);">EVERYBODY</span>
                 </h1>
                 <div class="light-intro-subtitle mt-4 flex items-center justify-center gap-3 opacity-0">
                     <div class="h-[2px] w-16 bg-gradient-to-r from-transparent to-sky-400"></div>
@@ -240,7 +295,7 @@
     {{-- Intro Theme Switch Script --}}
     {{-- Intro Theme Switch Script --}}
     <script>
-        (function() {
+        (function () {
             var theme = localStorage.getItem('portfolioTheme') || 'light';
             var darkIntro = document.getElementById('intro-dark');
             var lightIntro = document.getElementById('intro-light');
@@ -249,39 +304,49 @@
                 darkIntro.style.display = 'none';
                 lightIntro.style.display = 'flex';
                 lightIntro.classList.add('light-intro-active');
-                
-                setTimeout(function() {
+
+                setTimeout(function () {
                     lightIntro.style.opacity = '0';
                     lightIntro.style.transition = 'opacity 0.8s ease-out';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         lightIntro.style.display = 'none';
                     }, 800);
                 }, 4000);
 
-        // Tampilkan navbar tepat setelah intro light selesai
-                setTimeout(function() {
+                // Tampilkan navbar tepat setelah intro light selesai
+                setTimeout(function () {
                     var bottomNav = document.getElementById('bottomNavBar');
                     if (bottomNav) {
                         bottomNav.style.display = 'flex';
-                        // Force reflow
                         bottomNav.offsetHeight;
                         bottomNav.style.transform = 'translateY(0)';
                         bottomNav.style.opacity = '1';
+                    }
+                    var mobileTopNav = document.getElementById('mobileTopNavBar');
+                    if (mobileTopNav) {
+                        mobileTopNav.style.display = 'block';
+                        mobileTopNav.offsetHeight;
+                        mobileTopNav.classList.add('visible');
                     }
                 }, 3800);
             } else {
                 darkIntro.style.display = 'flex';
                 lightIntro.style.display = 'none';
-                
+
                 // Tampilkan navbar tepat setelah intro dark selesai (~4.4s)
-                setTimeout(function() {
+                setTimeout(function () {
                     var bottomNav = document.getElementById('bottomNavBar');
                     if (bottomNav) {
                         bottomNav.style.display = 'flex';
-                        // Force reflow
                         bottomNav.offsetHeight;
                         bottomNav.style.transform = 'translateY(0)';
                         bottomNav.style.opacity = '1';
+                    }
+                    var mobileTopNav = document.getElementById('mobileTopNavBar');
+                    if (mobileTopNav) {
+                        mobileTopNav.style.display = 'block';
+                        mobileTopNav.offsetHeight;
+                        mobileTopNav.classList.add('visible');
                     }
                 }, 3800);
             }
@@ -333,24 +398,48 @@
             <div class="main-sky-elements absolute inset-0 pointer-events-none overflow-hidden z-0">
                 <style>
                     @keyframes skyFloat1 {
-                        0% { transform: translate(0, 0) scale(1); }
-                        50% { transform: translate(20px, -15px) scale(1.05); }
-                        100% { transform: translate(-10px, 10px) scale(0.95); }
+                        0% {
+                            transform: translate(0, 0) scale(1);
+                        }
+
+                        50% {
+                            transform: translate(20px, -15px) scale(1.05);
+                        }
+
+                        100% {
+                            transform: translate(-10px, 10px) scale(0.95);
+                        }
                     }
+
                     @keyframes skyFloat2 {
-                        0% { transform: translate(0, 0) scale(0.95); }
-                        50% { transform: translate(-25px, 20px) scale(1.02); }
-                        100% { transform: translate(15px, -10px) scale(1); }
+                        0% {
+                            transform: translate(0, 0) scale(0.95);
+                        }
+
+                        50% {
+                            transform: translate(-25px, 20px) scale(1.02);
+                        }
+
+                        100% {
+                            transform: translate(15px, -10px) scale(1);
+                        }
                     }
+
                     @keyframes planeFlyMain {
-                        0% { transform: translate(-20vw, 30vh) scale(0.8); }
-                        100% { transform: translate(120vw, 15vh) scale(1.1); }
+                        0% {
+                            transform: translate(-20vw, 30vh) scale(0.8);
+                        }
+
+                        100% {
+                            transform: translate(120vw, 15vh) scale(1.1);
+                        }
                     }
                 </style>
-                
+
                 {{-- Awan di atas yang bergerak lambat secara acak --}}
                 {{-- Cloud 1 --}}
-                <svg class="absolute" style="top: 8%; left: 5%; animation: skyFloat1 18s ease-in-out infinite alternate;" width="220" height="100" viewBox="0 0 220 100">
+                <svg class="absolute" style="top: 8%; left: 5%; animation: skyFloat1 18s ease-in-out infinite alternate;"
+                    width="220" height="100" viewBox="0 0 220 100">
                     <g fill="white" opacity="0.6">
                         <ellipse cx="70" cy="60" rx="70" ry="35" />
                         <ellipse cx="120" cy="50" rx="50" ry="30" />
@@ -359,7 +448,8 @@
                     </g>
                 </svg>
                 {{-- Cloud 2 --}}
-                <svg class="absolute" style="top: 15%; right: 10%; animation: skyFloat2 22s ease-in-out infinite alternate;" width="180" height="80" viewBox="0 0 180 80">
+                <svg class="absolute" style="top: 15%; right: 10%; animation: skyFloat2 22s ease-in-out infinite alternate;"
+                    width="180" height="80" viewBox="0 0 180 80">
                     <g fill="white" opacity="0.5">
                         <ellipse cx="60" cy="45" rx="55" ry="28" />
                         <ellipse cx="110" cy="38" rx="45" ry="25" />
@@ -367,7 +457,9 @@
                     </g>
                 </svg>
                 {{-- Cloud 3 --}}
-                <svg class="absolute" style="top: 25%; left: 50%; animation: skyFloat1 25s ease-in-out infinite alternate-reverse;" width="120" height="60" viewBox="0 0 120 60">
+                <svg class="absolute"
+                    style="top: 25%; left: 50%; animation: skyFloat1 25s ease-in-out infinite alternate-reverse;"
+                    width="120" height="60" viewBox="0 0 120 60">
                     <g fill="white" opacity="0.4">
                         <ellipse cx="40" cy="35" rx="35" ry="20" />
                         <ellipse cx="75" cy="30" rx="30" ry="18" />
@@ -377,16 +469,21 @@
 
                 {{-- Pesawat terbang modern (bergerak perlahan membelah layar utama) --}}
                 <div class="absolute" style="animation: planeFlyMain 35s linear infinite;">
-                    <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)] opacity-80">
+                    <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)] opacity-80">
                         <!-- Right Wing -->
                         <path d="M 60 28 L 45 15 L 65 15 L 80 28 Z" fill="#cbd5e1" />
                         <rect x="52" y="22" width="12" height="5" rx="2" fill="#94a3b8" />
                         <!-- Fuselage (Body) -->
-                        <path d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z" fill="#ffffff" />
-                        <path d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z" fill="#e2e8f0" />
+                        <path
+                            d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z"
+                            fill="#ffffff" />
+                        <path
+                            d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z"
+                            fill="#e2e8f0" />
                         <!-- Tail -->
                         <path d="M 20 25 L 10 5 L 35 15 L 42 23 Z" fill="#0ea5e9" />
-                        <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5"/>
+                        <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5" />
                         <path d="M 25 32 L 15 25 L 28 25 L 35 32 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5" />
                         <!-- Left Wing -->
                         <path d="M 65 35 L 45 55 L 75 55 L 90 35 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
@@ -397,7 +494,13 @@
                         <line x1="20" y1="32" x2="135" y2="32" stroke="#0ea5e9" stroke-width="1.5" />
                         <path d="M 125 24 C 130 24, 135 26, 137 28 L 125 28 Z" fill="#1e293b" />
                         <!-- Passenger Windows -->
-                        <circle cx="110" cy="28" r="1.5" fill="#475569" /><circle cx="100" cy="28" r="1.5" fill="#475569" /><circle cx="90" cy="28" r="1.5" fill="#475569" /><circle cx="80" cy="28" r="1.5" fill="#475569" /><circle cx="70" cy="28" r="1.5" fill="#475569" /><circle cx="60" cy="28" r="1.5" fill="#475569" /><circle cx="50" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="110" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="100" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="90" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="80" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="70" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="60" cy="28" r="1.5" fill="#475569" />
+                        <circle cx="50" cy="28" r="1.5" fill="#475569" />
                         <path d="M 142 27 C 141 29, 141 33, 142 35" stroke="#cbd5e1" stroke-width="0.5" fill="none" />
                     </svg>
                 </div>
@@ -430,29 +533,43 @@
                         </p>
 
                         <!-- Social Media Links -->
-                        <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-4 text-left">My <span class="text-cyan-400">Social Media</span></h3>
+                        <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-4 text-left">My <span
+                                class="text-cyan-400">Social Media</span></h3>
                         <div class="flex flex-wrap items-center justify-start gap-4 mb-4">
-                            <a href="https://instagram.com/digimonn.s" target="_blank" 
-                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-cyan-500 hover:bg-slate-800">
-                                <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <i class="fa-brands fa-instagram text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Instagram</span>
+                            <a href="https://instagram.com/digimonn.s" target="_blank"
+                                class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-cyan-500 hover:bg-slate-800">
+                                <div
+                                    class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <i
+                                    class="fa-brands fa-instagram text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                                <span
+                                    class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Instagram</span>
                             </a>
-            
-                            <a href="https://www.roblox.com/share?code=92175f2ddbd35c4e9f2b9d4c80917d78&type=Profile&source=ProfileShare&stamp=1769044927858" target="_blank" 
-                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-purple-500 hover:bg-slate-800">
-                                <div class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <svg class="w-3.5 h-3.5 text-purple-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M5.165 0L0 18.835 18.835 24 24 5.165 5.165 0zm9.003 15.313l-4.256-1.163 1.163-4.256 4.256 1.163-1.163 4.256z"/>
+
+                            <a href="https://www.roblox.com/share?code=92175f2ddbd35c4e9f2b9d4c80917d78&type=Profile&source=ProfileShare&stamp=1769044927858"
+                                target="_blank"
+                                class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-purple-500 hover:bg-slate-800">
+                                <div
+                                    class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-purple-400 group-hover:scale-110 transition-transform"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M5.165 0L0 18.835 18.835 24 24 5.165 5.165 0zm9.003 15.313l-4.256-1.163 1.163-4.256 4.256 1.163-1.163 4.256z" />
                                 </svg>
-                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Roblox</span>
+                                <span
+                                    class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Roblox</span>
                             </a>
-            
-                            <a href="https://github.com/NathanAndhika" target="_blank" 
-                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-gray-300 hover:bg-slate-800">
-                                <div class="absolute inset-0 bg-gray-300/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                            <a href="https://github.com/NathanAndhika" target="_blank"
+                                class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-gray-300 hover:bg-slate-800">
+                                <div
+                                    class="absolute inset-0 bg-gray-300/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                </div>
                                 <i class="fa-brands fa-github text-gray-300 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">GitHub</span>
+                                <span
+                                    class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">GitHub</span>
                             </a>
                         </div>
                     </div>
@@ -460,14 +577,10 @@
                     <!-- Image Section -->
                     <div class="md:w-1/2 flex justify-center md:justify-end animate-fadeUp" style="animation-delay: 0.3s;">
                         <div class="relative group">
-                            <!-- Holographic Frame Effect -->
-                            <div
-                                class="photo-glow absolute -inset-1 bg-linear-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition duration-700 animate-pulse">
-                            </div>
 
                             <!-- Memuat foto profile (pastikan file bernama foto.jpeg dan diletakkan di folder public) -->
                             <div
-                                class="photo-frame relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 shadow-[0_0_30px_rgba(6,182,212,0.4)]">
+                                class="photo-frame relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10">
                                 <img src="/foto.jpeg" alt="Natsssss"
                                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
 
@@ -724,7 +837,8 @@
                             <div class="mb-10 text-left">
                                 <h4
                                     class="text-xl md:text-2xl font-bold text-white mb-6 border-l-4 border-cyan-500 pl-4 tracking-wide">
-                                    {{ $categoryName }}</h4>
+                                    {{ $categoryName }}
+                                </h4>
                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     @foreach($skills as $skill)
                                         <div
@@ -911,7 +1025,8 @@
                 style="background-image: radial-gradient(white 1px, transparent 0); background-size: 50px 50px;"></div>
             <!-- GPU intense effects hidden on mobile -->
             <div class="hidden md:block absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500/20 blur-[100px] rounded-full"></div>
-            <div class="hidden md:block absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-500/20 blur-[120px] rounded-full"></div>
+            <div class="hidden md:block absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-500/20 blur-[120px] rounded-full">
+            </div>
         </div>
 
         <!-- Modal Content Container -->
@@ -972,7 +1087,8 @@
             </div>
 
             <!-- Scrollable Modal Body -->
-            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10 overscroll-contain" style="-webkit-overflow-scrolling: touch; will-change: scroll-position;">
+            <div class="p-4 md:p-8 overflow-y-auto custom-scrollbar flex-1 relative z-10 overscroll-contain"
+                style="-webkit-overflow-scrolling: touch; will-change: scroll-position;">
 
                 <div
                     class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border border-white/5 bg-slate-900/50 p-4 rounded-sm">
@@ -1122,10 +1238,10 @@
                 });
             } else {
                 screenshotContainer.innerHTML = `
-                                <div class="col-span-full border border-dashed border-white/10 rounded-md p-8 text-center">
-                                    <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No visual data available for this sector</p>
-                                </div>
-                            `;
+                                    <div class="col-span-full border border-dashed border-white/10 rounded-md p-8 text-center">
+                                        <p class="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No visual data available for this sector</p>
+                                    </div>
+                                `;
             }
 
             // Set progress tag based on progress
@@ -1738,8 +1854,8 @@
         /* --- END NEW INTRO ANIMATIONS --- */
 
         /* =============================================
-           LIGHT MODE INTRO ANIMATIONS (Airplane / Sky)
-           ============================================= */
+               LIGHT MODE INTRO ANIMATIONS (Airplane / Sky)
+               ============================================= */
 
         /* Airplane flies FULL left-to-right across screen smoothly */
         @keyframes planeFlyAcross {
@@ -1747,29 +1863,37 @@
                 transform: translateX(0px) translateY(0px) rotate(-1deg);
                 opacity: 0;
             }
+
             3% {
                 opacity: 1;
             }
+
             20% {
                 transform: translateX(calc(15vw + 150px)) translateY(-8px) rotate(0deg);
             }
+
             40% {
                 transform: translateX(calc(35vw + 150px)) translateY(5px) rotate(0.5deg);
             }
+
             50% {
                 transform: translateX(calc(45vw + 150px)) translateY(-3px) rotate(-0.5deg);
             }
+
             65% {
                 transform: translateX(calc(62vw + 150px)) translateY(6px) rotate(0.3deg);
             }
+
             80% {
                 transform: translateX(calc(80vw + 150px)) translateY(-4px) rotate(-0.5deg);
                 opacity: 1;
             }
+
             95% {
                 transform: translateX(calc(100vw + 150px)) translateY(-10px) rotate(-1.5deg);
                 opacity: 0.5;
             }
+
             100% {
                 transform: translateX(calc(110vw + 150px)) translateY(-15px) rotate(-2deg);
                 opacity: 0;
@@ -1787,21 +1911,26 @@
                 clip-path: inset(0 100% 0 0);
                 opacity: 0;
             }
+
             5% {
                 opacity: 0.5;
             }
+
             40% {
                 clip-path: inset(0 55% 0 0);
                 opacity: 0.7;
             }
+
             70% {
                 clip-path: inset(0 10% 0 0);
                 opacity: 0.5;
             }
+
             90% {
                 clip-path: inset(0 0% 0 0);
                 opacity: 0.3;
             }
+
             100% {
                 clip-path: inset(0 0% 0 0);
                 opacity: 0;
@@ -1819,6 +1948,7 @@
                 transform: scale(0.7);
                 filter: blur(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -1836,6 +1966,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -1849,31 +1980,57 @@
 
         /* Cloud drift animations for intro */
         @keyframes cloudDrift1 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(120vw); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(120vw);
+            }
         }
+
         @keyframes cloudDrift2 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-120vw); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-120vw);
+            }
         }
+
         @keyframes cloudDrift3 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(80vw); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(80vw);
+            }
         }
+
         @keyframes cloudDrift4 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100vw); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100vw);
+            }
         }
 
         .light-intro-active .light-intro-cloud1 {
             animation: cloudDrift1 8s linear forwards;
         }
+
         .light-intro-active .light-intro-cloud2 {
             animation: cloudDrift2 10s linear forwards;
         }
+
         .light-intro-active .light-intro-cloud3 {
             animation: cloudDrift3 12s linear forwards;
         }
+
         .light-intro-active .light-intro-cloud4 {
             animation: cloudDrift4 9s linear forwards;
         }
@@ -1882,9 +2039,15 @@
         .light-intro-sun {
             animation: sunPulse 2s ease-in-out infinite alternate;
         }
+
         @keyframes sunPulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
         }
 
         /* --- END LIGHT INTRO ANIMATIONS --- */
