@@ -13,7 +13,7 @@
     <!-- Prevent flash of wrong theme -->
     <script>
         (function() {
-            var theme = localStorage.getItem('portfolioTheme') || 'dark';
+            var theme = localStorage.getItem('portfolioTheme') || 'light';
             if (theme === 'light') {
                 document.documentElement.classList.add('theme-light');
             }
@@ -79,7 +79,7 @@
            ============================================= */
 
         /* Navbar */
-        .navbar-bg { background: rgba(2, 6, 23, 0.6); }
+        .navbar-bg { background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         .navbar-border { border-color: rgba(255,255,255,0.05); }
         .navbar-title { color: #fff; }
         .navbar-subtitle { color: #06b6d4; }
@@ -158,6 +158,30 @@
             border-color: rgba(6,182,212,0.4);
         }
         .music-player-title { color: #67e8f9; }
+        
+        /* Vinyl Record Player */
+        @keyframes vinylSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .disc-spin {
+            animation: vinylSpin 3s linear infinite;
+        }
+        .vinyl-glare {
+            background: conic-gradient(
+                from 45deg,
+                rgba(255, 255, 255, 0) 0deg,
+                rgba(255, 255, 255, 0.1) 20deg,
+                rgba(255, 255, 255, 0) 40deg,
+                rgba(255, 255, 255, 0) 130deg,
+                rgba(255, 255, 255, 0.4) 160deg,
+                rgba(255, 255, 255, 0) 190deg,
+                rgba(255, 255, 255, 0) 270deg,
+                rgba(255, 255, 255, 0.6) 310deg,
+                rgba(255, 255, 255, 0) 340deg
+            );
+        }
+
 
         /* =============================================
            LIGHT THEME (SKY / CLOUD)
@@ -183,8 +207,7 @@
         }
 
         /* Navbar - Light */
-        .theme-light .navbar-bg { background: rgba(240,249,255,0.85); }
-        .theme-light .navbar-border { border-color: rgba(14,165,233,0.15); }
+        .theme-light .navbar-bg { background: rgba(240,249,255,0.9); border-color: rgba(14,165,233,0.2); box-shadow: 0 8px 32px rgba(14,165,233,0.15), 0 0 15px rgba(14,165,233,0.1); }
         .theme-light .navbar-title { color: #0c4a6e; }
         .theme-light .navbar-subtitle { color: #0284c7; }
         .theme-light .navbar-divider { border-color: rgba(14,165,233,0.2); }
@@ -237,46 +260,58 @@
         .theme-light .portfolio-stars {
             opacity: 0 !important;
         }
+        /* Nebula: use simple opacity instead of heavy blur in light mode */
         .theme-light .portfolio-nebula-1 {
-            background: rgba(255,255,255,0.6) !important;
+            background: rgba(255,255,255,0.4) !important;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: none !important;
+            opacity: 0.6;
         }
         .theme-light .portfolio-nebula-2 {
-            background: rgba(255,255,255,0.5) !important;
+            background: rgba(255,255,255,0.3) !important;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: none !important;
+            opacity: 0.5;
         }
 
-        /* Cloud elements for light theme */
+        /* Cloud elements for light theme - STATIC for performance */
         .theme-light .portfolio-main-bg::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none;
             z-index: 0;
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'%3E%3Cg fill='white' opacity='1'%3E%3Cpath transform='translate(100, 100) scale(2)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(600, 200) scale(3)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(300, 400) scale(1.5)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(800, 50) scale(2.5)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'%3E%3Cg fill='white' opacity='0.85'%3E%3Cpath transform='translate(100, 100) scale(2)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(600, 200) scale(3)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(300, 400) scale(1.5)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(800, 50) scale(2.5)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 100vw 100vh;
-            background-repeat: repeat;
-            animation: driftClouds 60s linear infinite;
+            background-repeat: no-repeat;
+            will-change: auto;
         }
 
         .theme-light .portfolio-main-bg::after {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none;
             z-index: 0;
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'%3E%3Cg fill='white' opacity='0.7'%3E%3Cpath transform='translate(50, 300) scale(1.8)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(500, 50) scale(2.2)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(850, 350) scale(3)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 150vw 150vh;
-            background-repeat: repeat;
-            animation: driftClouds2 80s linear infinite;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'%3E%3Cg fill='white' opacity='0.5'%3E%3Cpath transform='translate(50, 300) scale(1.8)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(500, 50) scale(2.2)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3Cpath transform='translate(850, 350) scale(3)' d='M 46 24 C 46 16.2 39.7 10 32 10 C 25.6 10 20.2 14.3 18.4 20.2 C 18.1 20.2 17.7 20.2 17.4 20.2 C 10.6 20.2 5 25.8 5 32.6 C 5 39.4 10.6 45 17.4 45 L 46 45 C 51.5 45 56 40.5 56 35 C 56 29.5 51.5 25 46 24 Z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 120vw 120vh;
+            background-repeat: no-repeat;
+            background-position: -10vw -10vh;
+            will-change: auto;
         }
 
         /* Hide space elements in light theme */
         .theme-light .space-rockets,
         .theme-light .space-asteroids {
             display: none !important;
+        }
+
+        /* Show sky elements only in light theme */
+        .main-sky-elements {
+            display: none;
+        }
+        .theme-light .main-sky-elements {
+            display: block !important;
         }
 
         /* Section titles - Light */
@@ -318,14 +353,15 @@
             border-color: rgba(14,165,233,0.15) !important; 
         }
 
-        /* Section backgrounds */
+        /* Section backgrounds - NO backdrop-filter for performance */
         .theme-light .portfolio-main-bg [class*="bg-slate-900"],
         .theme-light .portfolio-main-bg [class*="bg-slate-950"] {
-            background: rgba(255,255,255,0.6) !important;
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.75) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
         .theme-light .portfolio-main-bg [class*="bg-[#0a0f1c]"] {
-            background: rgba(255,255,255,0.6) !important;
+            background: rgba(255,255,255,0.75) !important;
         }
         .theme-light .portfolio-main-bg [class*="bg-slate-800"] {
             background: #bae6fd !important;
@@ -383,11 +419,12 @@
         .theme-light .bio-card-bg .text-slate-400 { color: #64748b !important; }
         .theme-light .bio-card-bg .text-white { color: #0284c7 !important; }
 
-        /* Skills Section - Light */
+        /* Skills Section - Light (no backdrop-filter for perf) */
         .theme-light .skill-card {
-            background: rgba(255,255,255,0.7) !important;
+            background: rgba(255,255,255,0.8) !important;
             border-color: rgba(14,165,233,0.15) !important;
-            backdrop-filter: blur(10px);
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
         .theme-light .skill-card:hover {
             border-color: rgba(14,165,233,0.4) !important;
@@ -549,9 +586,11 @@
 
         /* Music Player - Light */
         .theme-light .music-player-bg {
-            background: rgba(255,255,255,0.85) !important;
+            background: rgba(255,255,255,0.9) !important;
             border-color: rgba(14,165,233,0.3) !important;
             box-shadow: 0 4px 20px rgba(14,165,233,0.15) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
         .theme-light .music-player-title,
         .theme-light #songTitle { color: #0284c7 !important; }
@@ -559,6 +598,37 @@
 
         /* Intro overlay stays dark always */
         .theme-light .animate-introOverlay { background: #020617 !important; }
+
+        /* === GLOBAL LIGHT MODE PERFORMANCE === */
+        /* Disable all backdrop-blur effects in light mode for smooth scrolling */
+        .theme-light .backdrop-blur-sm,
+        .theme-light .backdrop-blur-md,
+        .theme-light .backdrop-blur-xl,
+        .theme-light .backdrop-blur {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        .theme-light .navbar-bg {
+            background: rgba(240,249,255,0.95) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-color: rgba(14,165,233,0.25) !important;
+        }
+        /* Photo frame: solid bg */
+        .theme-light .photo-frame {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        /* Bio card: solid bg */
+        .theme-light .bio-card-bg {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        /* Force GPU compositing on scrollable content */
+        .theme-light .portfolio-main-bg {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
 
         /* Floating cloud animation for light theme */
         @keyframes driftClouds {
@@ -641,51 +711,58 @@
     {{-- (---Lagu---) --}}
 <audio id="bgMusic" loop></audio>
 
-<div class="music-player-bg fixed bottom-6 right-6 z-50 flex items-center gap-4
-backdrop-blur-md px-5 py-3 rounded-xl border
-shadow-[0_0_25px_rgba(34,211,238,0.4)]">
+<div class="music-player-bg fixed bottom-6 right-6 z-50 flex items-center justify-center p-2 rounded-full border border-cyan-800/80 shadow-[0_0_15px_rgba(34,211,238,0.3)] cursor-pointer hover:scale-110 transition-all duration-300 group" onclick="toggleMusic()" title="Play/Pause Music">
+    <!-- Spinning Disc -->
+    <div id="musicDisc" class="w-14 h-14 rounded-full flex items-center justify-center relative shadow-lg transition-transform duration-300" style="background-color: #000 !important;">
+        
+        <!-- Teks melingkar -->
+        <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-[80%] h-[80%]">
+                <path id="textCircle" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="transparent" />
+                <text class="text-[14px] font-mono font-bold tracking-[0.3em] uppercase" fill="rgba(255,255,255,0.6)">
+                    <textPath href="#textCircle" startOffset="25%" text-anchor="middle">
+                        Sound
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+        
+        <!-- Center label (warna putih kecil) -->
+        <div class="w-4 h-4 rounded-full bg-white flex items-center justify-center relative shadow-sm">
+            <!-- Titik hitam kecil di pinggir agar putarannya tetap terlihat jelas -->
+            <div class="absolute top-[2px] right-[2px] w-[3px] h-[3px] bg-black rounded-full"></div>
+        </div>
 
-    <span id="songTitle" class="text-sm text-cyan-300 font-semibold tracking-wide">
-        Loading...
-    </span>
-
-    <button onclick="prevSong()" class="space-btn text-cyan-300">
-    ⏮
-    </button>
-
-    <button onclick="toggleMusic()" class="space-btn text-purple-300">
-    🔊
-    </button>
-
-    <button onclick="nextSong()" class="space-btn text-cyan-300">
-    ⏭
-    </button>
-
+    </div>
 </div>
 
 <script>
 
 let music = document.getElementById("bgMusic");
-let title = document.getElementById("songTitle");
+let musicDisc = document.getElementById("musicDisc");
 
 let songs = [
 {
-title: "What It Is",
 src: "/audio/music.mp3"
-},
-{
-title: "Sency",
-src: "/audio/music2.mp3"
 }
 ];
 
-let currentSong = localStorage.getItem("songIndex") || 0;
+let currentSong = 0;
 
 function loadSong(){
 
 music.src = songs[currentSong].src;
-title.innerText = songs[currentSong].title;
 
+}
+
+if(music) {
+    music.addEventListener('play', () => {
+        if(musicDisc) musicDisc.classList.add('disc-spin');
+    });
+
+    music.addEventListener('pause', () => {
+        if(musicDisc) musicDisc.classList.remove('disc-spin');
+    });
 }
 
 loadSong();
@@ -702,35 +779,7 @@ localStorage.setItem("musicPlaying","false");
 
 }
 
-function nextSong(){
 
-currentSong++;
-
-if(currentSong >= songs.length){
-currentSong = 0;
-}
-
-localStorage.setItem("songIndex", currentSong);
-
-loadSong();
-music.play();
-
-}
-
-function prevSong(){
-
-currentSong--;
-
-if(currentSong < 0){
-currentSong = songs.length - 1;
-}
-
-localStorage.setItem("songIndex", currentSong);
-
-loadSong();
-music.play();
-
-}
 
 /* autoplay jika sebelumnya play */
 
@@ -772,7 +821,7 @@ function updateThemeLabels(theme) {
 
 // Initialize labels on load
 document.addEventListener('DOMContentLoaded', () => {
-    const theme = localStorage.getItem('portfolioTheme') || 'dark';
+    const theme = localStorage.getItem('portfolioTheme') || 'light';
     updateThemeLabels(theme);
 });
 </script>

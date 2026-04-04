@@ -99,5 +99,66 @@
     .animate-fadeUp {
         animation: fadeUp 0.6s ease-out forwards;
     }
+
+    /* LIGHT THEME OVERRIDES FOR LOGIN PAGE */
+    .theme-light .min-h-screen.bg-\[\#020617\] {
+        background-color: #e0f2fe !important;
+    }
+    .theme-light .bg-slate-950\/50 {
+        background: rgba(255, 255, 255, 0.85) !important;
+        border-color: rgba(14, 165, 233, 0.3) !important;
+        box-shadow: 0 8px 32px rgba(14, 165, 233, 0.15) !important;
+        backdrop-filter: none !important;
+    }
+    .theme-light .text-white { color: #0284c7 !important; }
+    .theme-light .text-slate-500 { color: #64748b !important; }
+    .theme-light .text-slate-400 { color: #64748b !important; }
+    .theme-light .text-slate-200 { color: #334155 !important; }
+    
+    .theme-light .bg-slate-900\/50 {
+        background: rgba(240, 249, 255, 0.8) !important;
+        border-color: rgba(14, 165, 233, 0.3) !important;
+        color: #0f172a !important;
+    }
+    .theme-light .bg-slate-900\/50::placeholder {
+        color: #94a3b8 !important;
+    }
+    
+    .theme-light .border-white\/10 {
+        border-color: rgba(14, 165, 233, 0.2) !important;
+    }
+    .theme-light .text-cyan-500 { color: #0284c7 !important; }
+    .theme-light .bg-cyan-500 { background-color: #0284c7 !important; color: white !important; }
+    .theme-light .bg-cyan-500\/10 {
+        background-color: rgba(14, 165, 233, 0.1) !important;
+        border-color: rgba(14, 165, 233, 0.3) !important;
+    }
+    .theme-light button[type="submit"] {
+        color: #0284c7 !important;
+        background-color: rgba(14, 165, 233, 0.1) !important;
+        border-color: rgba(14, 165, 233, 0.3) !important;
+    }
+    .theme-light button[type="submit"]:hover {
+        background-color: #0ea5e9 !important;
+        color: white !important;
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3) !important;
+    }
+    .theme-light input[type="checkbox"] {
+        background-color: white !important;
+        border-color: rgba(14, 165, 233, 0.4) !important;
+    }
+    
+    /* Background animated elements */
+    .theme-light .bg-cyan-500\/10.blur-\[120px\] {
+        background-color: rgba(14, 165, 233, 0.3) !important;
+    }
+    .theme-light .bg-rose-500\/5.blur-\[120px\] {
+        background-color: rgba(244, 63, 94, 0.15) !important;
+    }
+    .theme-light .border-b.border-white\/10 {
+        border-color: rgba(14, 165, 233, 0.2) !important;
+    }
+    .theme-light .text-cyan-400 { color: #0284c7 !important; }
+    .theme-light .hover\:text-cyan-400:hover { color: #0ea5e9 !important; }
 </style>
 @endsection

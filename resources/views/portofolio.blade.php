@@ -2,8 +2,9 @@
 @section('title', 'Nathan | Mission Commander')
 @section('content')
 
-    <div
-        class="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-9999 pointer-events-none animate-introOverlay overflow-hidden">
+    {{-- ============ DARK MODE INTRO (Space - Rocket & Moon) ============ --}}
+    <div id="intro-dark"
+        class="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-[10001] pointer-events-none animate-introOverlay overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute animate-asteroidDrift1" style="top: -10%; left: 20%;">
                 <svg class="w-16 h-16 text-slate-700/40" fill="currentColor" viewBox="0 0 24 24">
@@ -85,11 +86,214 @@
         </div>
     </div>
 
+    {{-- ============ LIGHT MODE INTRO (Sky - Airplane) ============ --}}
+    <div id="intro-light"
+        class="fixed inset-0 flex flex-col items-center justify-center z-[10001] pointer-events-none overflow-hidden"
+        style="display: none;">
+
+        {{-- Sky gradient background --}}
+        <div class="absolute inset-0 z-0" style="background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 30%, #bae6fd 60%, #e0f2fe 100%);">
+        </div>
+
+        {{-- Animated sun --}}
+        <div class="absolute z-[1] light-intro-sun" style="top: 8%; right: 12%;">
+            <div class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-yellow-300 shadow-[0_0_80px_30px_rgba(253,224,71,0.6),0_0_120px_60px_rgba(253,224,71,0.3)]">
+            </div>
+            {{-- Sun rays --}}
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-yellow-300/30 animate-ping" style="animation-duration: 3s;"></div>
+            </div>
+        </div>
+
+        {{-- Floating clouds layer (hanya di bagian atas dan bergerak lambat secara acak) --}}
+        <div class="absolute inset-0 z-[2] overflow-hidden">
+            <style>
+                @keyframes randomFloat1 {
+                    0% { transform: translate(-10px, 5px) scale(0.95); }
+                    50% { transform: translate(30px, -15px) scale(1.05); }
+                    100% { transform: translate(50px, 15px) scale(1.0); }
+                }
+                @keyframes randomFloat2 {
+                    0% { transform: translate(20px, -15px) scale(1.05); }
+                    50% { transform: translate(-25px, 15px) scale(0.98); }
+                    100% { transform: translate(-40px, -5px) scale(1.0); }
+                }
+                @keyframes randomFloat3 {
+                    0% { transform: translate(10px, 15px); }
+                    50% { transform: translate(-30px, -20px) scale(1.08); }
+                    100% { transform: translate(15px, 5px) scale(0.95); }
+                }
+                @keyframes randomFloat4 {
+                    0% { transform: translate(-20px, -10px) scale(1.0); }
+                    50% { transform: translate(40px, 20px) scale(1.05); }
+                    100% { transform: translate(-10px, -15px) scale(0.9); }
+                }
+            </style>
+            
+            {{-- Cloud 1 --}}
+            <svg class="light-intro-cloud1 absolute" style="top: 5%; left: 0%; animation: randomFloat1 9s ease-in-out forwards;" width="220" height="100" viewBox="0 0 220 100">
+                <g fill="white" opacity="0.9">
+                    <ellipse cx="70" cy="60" rx="70" ry="35" />
+                    <ellipse cx="120" cy="50" rx="50" ry="30" />
+                    <ellipse cx="160" cy="60" rx="45" ry="28" />
+                    <ellipse cx="95" cy="42" rx="40" ry="30" />
+                </g>
+            </svg>
+            {{-- Cloud 2 --}}
+            <svg class="light-intro-cloud2 absolute" style="top: 10%; right: 5%; animation: randomFloat2 8s ease-in-out forwards;" width="180" height="80" viewBox="0 0 180 80">
+                <g fill="white" opacity="0.7">
+                    <ellipse cx="60" cy="45" rx="55" ry="28" />
+                    <ellipse cx="110" cy="38" rx="45" ry="25" />
+                    <ellipse cx="140" cy="48" rx="35" ry="22" />
+                </g>
+            </svg>
+            {{-- Cloud 3 --}}
+            <svg class="light-intro-cloud3 absolute" style="top: 15%; left: 35%; animation: randomFloat3 7s ease-in-out forwards;" width="120" height="60" viewBox="0 0 120 60">
+                <g fill="white" opacity="0.6">
+                    <ellipse cx="40" cy="35" rx="35" ry="20" />
+                    <ellipse cx="75" cy="30" rx="30" ry="18" />
+                    <ellipse cx="55" cy="25" rx="25" ry="18" />
+                </g>
+            </svg>
+            {{-- Cloud 4 --}}
+            <svg class="light-intro-cloud4 absolute" style="top: 8%; right: 35%; animation: randomFloat4 10s ease-in-out forwards;" width="160" height="70" viewBox="0 0 160 70">
+                <g fill="white" opacity="0.8">
+                    <ellipse cx="50" cy="40" rx="45" ry="25" />
+                    <ellipse cx="100" cy="35" rx="40" ry="22" />
+                    <ellipse cx="130" cy="42" rx="30" ry="20" />
+                </g>
+            </svg>
+        </div>
+
+        {{-- Airplane + Banner container --}}
+        <div class="absolute inset-0 z-[5] overflow-hidden">
+
+            {{-- Contrail / vapor trail --}}
+            <div class="light-intro-contrail absolute" style="top: 46%; left: 0; width: 100%; height: 4px;">
+                <div class="h-full rounded-full" style="background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.9) 60%, transparent 100%); filter: blur(2px);"></div>
+            </div>
+
+            {{-- Airplane SVG (flies full left-to-right) --}}
+            <div class="light-intro-plane absolute" style="top: 35%; left: -150px;">
+                <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)]">
+                    <!-- Right Wing (Back) -->
+                    <path d="M 60 28 L 45 15 L 65 15 L 80 28 Z" fill="#cbd5e1" />
+                    <rect x="52" y="22" width="12" height="5" rx="2" fill="#94a3b8" />
+                    
+                    <!-- Fuselage (Body) -->
+                    <path d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z" fill="#ffffff" />
+                    <!-- Shading on bottom of fuselage -->
+                    <path d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z" fill="#e2e8f0" />
+                    
+                    <!-- Tail -->
+                    <path d="M 20 25 L 10 5 L 35 15 L 42 23 Z" fill="#0ea5e9" />
+                    <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5"/>
+                    <!-- Horizontal Stabilizer (tail wing) -->
+                    <path d="M 25 32 L 15 25 L 28 25 L 35 32 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5" />
+
+                    <!-- Left Wing (Front) -->
+                    <path d="M 65 35 L 45 55 L 75 55 L 90 35 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+                    <!-- Left Engine -->
+                    <rect x="65" y="38" width="16" height="8" rx="4" fill="#64748b" />
+                    <circle cx="81" cy="42" r="3.5" fill="#334155" />
+                    <!-- Wingtip -->
+                    <path d="M 72 55 L 75 48 L 76 55 Z" fill="#0ea5e9" />
+                    
+                    <!-- Details & Trim -->
+                    <!-- Blue Stripe -->
+                    <line x1="20" y1="32" x2="135" y2="32" stroke="#0ea5e9" stroke-width="1.5" />
+                    <!-- Cockpit -->
+                    <path d="M 125 24 C 130 24, 135 26, 137 28 L 125 28 Z" fill="#1e293b" />
+                    <!-- Passenger Windows -->
+                    <circle cx="110" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="100" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="90" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="80" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="70" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="60" cy="28" r="1.5" fill="#475569" />
+                    <circle cx="50" cy="28" r="1.5" fill="#475569" />
+                    
+                    <!-- Nose cone line -->
+                    <path d="M 142 27 C 141 29, 141 33, 142 35" stroke="#cbd5e1" stroke-width="0.5" fill="none" />
+                </svg>
+            </div>
+        </div>
+
+        {{-- Text "HELLO EVERYBODY" appears behind the plane at center --}}
+        <div class="absolute inset-0 z-[4] flex flex-col items-center justify-center">
+            <div class="light-intro-text opacity-0 flex flex-col items-center gap-2">
+                <h1 class="text-6xl md:text-9xl font-black tracking-tight text-sky-700 drop-shadow-[0_3px_15px_rgba(14,165,233,0.3)] leading-none">
+                    HELLO
+                </h1>
+                <h1 class="text-6xl md:text-9xl font-black tracking-tight leading-none">
+                    <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(90deg, #0284c7, #6366f1, #8b5cf6);">EVERYBODY</span>
+                </h1>
+                <div class="light-intro-subtitle mt-4 flex items-center justify-center gap-3 opacity-0">
+                    <div class="h-[2px] w-16 bg-gradient-to-r from-transparent to-sky-400"></div>
+                    <span class="font-mono text-xs text-sky-500 tracking-[0.5em] uppercase">Welcome Aboard</span>
+                    <div class="h-[2px] w-16 bg-gradient-to-l from-transparent to-sky-400"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Intro Theme Switch Script --}}
+    {{-- Intro Theme Switch Script --}}
+    <script>
+        (function() {
+            var theme = localStorage.getItem('portfolioTheme') || 'light';
+            var darkIntro = document.getElementById('intro-dark');
+            var lightIntro = document.getElementById('intro-light');
+
+            if (theme === 'light') {
+                darkIntro.style.display = 'none';
+                lightIntro.style.display = 'flex';
+                lightIntro.classList.add('light-intro-active');
+                
+                setTimeout(function() {
+                    lightIntro.style.opacity = '0';
+                    lightIntro.style.transition = 'opacity 0.8s ease-out';
+                    setTimeout(function() {
+                        lightIntro.style.display = 'none';
+                    }, 800);
+                }, 4000);
+
+        // Tampilkan navbar tepat setelah intro light selesai
+                setTimeout(function() {
+                    var bottomNav = document.getElementById('bottomNavBar');
+                    if (bottomNav) {
+                        bottomNav.style.display = 'flex';
+                        // Force reflow
+                        bottomNav.offsetHeight;
+                        bottomNav.style.transform = 'translateY(0)';
+                        bottomNav.style.opacity = '1';
+                    }
+                }, 3800);
+            } else {
+                darkIntro.style.display = 'flex';
+                lightIntro.style.display = 'none';
+                
+                // Tampilkan navbar tepat setelah intro dark selesai (~4.4s)
+                setTimeout(function() {
+                    var bottomNav = document.getElementById('bottomNavBar');
+                    if (bottomNav) {
+                        bottomNav.style.display = 'flex';
+                        // Force reflow
+                        bottomNav.offsetHeight;
+                        bottomNav.style.transform = 'translateY(0)';
+                        bottomNav.style.opacity = '1';
+                    }
+                }, 3800);
+            }
+        })();
+    </script>
+
+    <x-navbar />
+
     <div class="animate-portfolioAppear">
-        <x-navbar />
 
         <div
-            class="portfolio-main-bg bg-[#020617] text-slate-200 relative overflow-hidden font-sans selection:bg-cyan-500/30 pt-20">
+            class="portfolio-main-bg bg-[#020617] text-slate-200 relative overflow-hidden font-sans selection:bg-cyan-500/30 pb-24">
 
             <div class="portfolio-stars absolute inset-0 opacity-10 pointer-events-none"
                 style="background-image: radial-gradient(white 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -125,6 +329,80 @@
                 </div>
             </div>
 
+            {{-- Background Sky Elements (Hanya muncul di Light Mode) --}}
+            <div class="main-sky-elements absolute inset-0 pointer-events-none overflow-hidden z-0">
+                <style>
+                    @keyframes skyFloat1 {
+                        0% { transform: translate(0, 0) scale(1); }
+                        50% { transform: translate(20px, -15px) scale(1.05); }
+                        100% { transform: translate(-10px, 10px) scale(0.95); }
+                    }
+                    @keyframes skyFloat2 {
+                        0% { transform: translate(0, 0) scale(0.95); }
+                        50% { transform: translate(-25px, 20px) scale(1.02); }
+                        100% { transform: translate(15px, -10px) scale(1); }
+                    }
+                    @keyframes planeFlyMain {
+                        0% { transform: translate(-20vw, 30vh) scale(0.8); }
+                        100% { transform: translate(120vw, 15vh) scale(1.1); }
+                    }
+                </style>
+                
+                {{-- Awan di atas yang bergerak lambat secara acak --}}
+                {{-- Cloud 1 --}}
+                <svg class="absolute" style="top: 8%; left: 5%; animation: skyFloat1 18s ease-in-out infinite alternate;" width="220" height="100" viewBox="0 0 220 100">
+                    <g fill="white" opacity="0.6">
+                        <ellipse cx="70" cy="60" rx="70" ry="35" />
+                        <ellipse cx="120" cy="50" rx="50" ry="30" />
+                        <ellipse cx="160" cy="60" rx="45" ry="28" />
+                        <ellipse cx="95" cy="42" rx="40" ry="30" />
+                    </g>
+                </svg>
+                {{-- Cloud 2 --}}
+                <svg class="absolute" style="top: 15%; right: 10%; animation: skyFloat2 22s ease-in-out infinite alternate;" width="180" height="80" viewBox="0 0 180 80">
+                    <g fill="white" opacity="0.5">
+                        <ellipse cx="60" cy="45" rx="55" ry="28" />
+                        <ellipse cx="110" cy="38" rx="45" ry="25" />
+                        <ellipse cx="140" cy="48" rx="35" ry="22" />
+                    </g>
+                </svg>
+                {{-- Cloud 3 --}}
+                <svg class="absolute" style="top: 25%; left: 50%; animation: skyFloat1 25s ease-in-out infinite alternate-reverse;" width="120" height="60" viewBox="0 0 120 60">
+                    <g fill="white" opacity="0.4">
+                        <ellipse cx="40" cy="35" rx="35" ry="20" />
+                        <ellipse cx="75" cy="30" rx="30" ry="18" />
+                        <ellipse cx="55" cy="25" rx="25" ry="18" />
+                    </g>
+                </svg>
+
+                {{-- Pesawat terbang modern (bergerak perlahan membelah layar utama) --}}
+                <div class="absolute" style="animation: planeFlyMain 35s linear infinite;">
+                    <svg width="180" height="80" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_8px_15px_rgba(0,0,0,0.15)] opacity-80">
+                        <!-- Right Wing -->
+                        <path d="M 60 28 L 45 15 L 65 15 L 80 28 Z" fill="#cbd5e1" />
+                        <rect x="52" y="22" width="12" height="5" rx="2" fill="#94a3b8" />
+                        <!-- Fuselage (Body) -->
+                        <path d="M 20 30 C 15 25, 40 22, 110 22 C 135 22, 145 28, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 30, 20 30 Z" fill="#ffffff" />
+                        <path d="M 20 34 L 110 34 C 135 34, 145 32, 145 30 C 145 34, 135 38, 110 38 L 20 38 C 15 38, 15 34, 20 34 Z" fill="#e2e8f0" />
+                        <!-- Tail -->
+                        <path d="M 20 25 L 10 5 L 35 15 L 42 23 Z" fill="#0ea5e9" />
+                        <path d="M 25 24 L 20 18 L 35 20 Z" fill="#bae6fd" opacity="0.5"/>
+                        <path d="M 25 32 L 15 25 L 28 25 L 35 32 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5" />
+                        <!-- Left Wing -->
+                        <path d="M 65 35 L 45 55 L 75 55 L 90 35 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+                        <rect x="65" y="38" width="16" height="8" rx="4" fill="#64748b" />
+                        <circle cx="81" cy="42" r="3.5" fill="#334155" />
+                        <path d="M 72 55 L 75 48 L 76 55 Z" fill="#0ea5e9" />
+                        <!-- Blue Stripe & Cockpit -->
+                        <line x1="20" y1="32" x2="135" y2="32" stroke="#0ea5e9" stroke-width="1.5" />
+                        <path d="M 125 24 C 130 24, 135 26, 137 28 L 125 28 Z" fill="#1e293b" />
+                        <!-- Passenger Windows -->
+                        <circle cx="110" cy="28" r="1.5" fill="#475569" /><circle cx="100" cy="28" r="1.5" fill="#475569" /><circle cx="90" cy="28" r="1.5" fill="#475569" /><circle cx="80" cy="28" r="1.5" fill="#475569" /><circle cx="70" cy="28" r="1.5" fill="#475569" /><circle cx="60" cy="28" r="1.5" fill="#475569" /><circle cx="50" cy="28" r="1.5" fill="#475569" />
+                        <path d="M 142 27 C 141 29, 141 33, 142 35" stroke="#cbd5e1" stroke-width="0.5" fill="none" />
+                    </svg>
+                </div>
+            </div>
+
             <section id="home" class="relative min-h-[80vh] flex items-center justify-center px-6 overflow-hidden z-10">
                 <div
                     class="relative z-10 max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
@@ -146,10 +424,37 @@
                             </div>
                         </h2>
                         <p
-                            class="hero-subtitle text-slate-400 w-full md:max-w-lg mb-12 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4 text-left">
+                            class="hero-subtitle text-slate-400 w-full md:max-w-lg mb-8 font-mono text-sm md:text-base leading-relaxed uppercase tracking-wider border-y border-white/5 py-4 text-left">
                             Student <span class="text-cyan-700 mx-1">//</span>
                             Frontend Pilot
                         </p>
+
+                        <!-- Social Media Links -->
+                        <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-4 text-left">My <span class="text-cyan-400">Social Media</span></h3>
+                        <div class="flex flex-wrap items-center justify-start gap-4 mb-4">
+                            <a href="https://instagram.com/digimonn.s" target="_blank" 
+                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-cyan-500 hover:bg-slate-800">
+                                <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <i class="fa-brands fa-instagram text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Instagram</span>
+                            </a>
+            
+                            <a href="https://www.roblox.com/share?code=92175f2ddbd35c4e9f2b9d4c80917d78&type=Profile&source=ProfileShare&stamp=1769044927858" target="_blank" 
+                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-purple-500 hover:bg-slate-800">
+                                <div class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <svg class="w-3.5 h-3.5 text-purple-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M5.165 0L0 18.835 18.835 24 24 5.165 5.165 0zm9.003 15.313l-4.256-1.163 1.163-4.256 4.256 1.163-1.163 4.256z"/>
+                                </svg>
+                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">Roblox</span>
+                            </a>
+            
+                            <a href="https://github.com/NathanAndhika" target="_blank" 
+                               class="group relative flex items-center gap-3 px-5 py-2.5 bg-slate-900 border border-white/5 rounded-sm transition-all duration-300 hover:border-gray-300 hover:bg-slate-800">
+                                <div class="absolute inset-0 bg-gray-300/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <i class="fa-brands fa-github text-gray-300 group-hover:scale-110 transition-transform"></i>
+                                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-300 uppercase">GitHub</span>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Image Section -->
@@ -1431,6 +1736,158 @@
         }
 
         /* --- END NEW INTRO ANIMATIONS --- */
+
+        /* =============================================
+           LIGHT MODE INTRO ANIMATIONS (Airplane / Sky)
+           ============================================= */
+
+        /* Airplane flies FULL left-to-right across screen smoothly */
+        @keyframes planeFlyAcross {
+            0% {
+                transform: translateX(0px) translateY(0px) rotate(-1deg);
+                opacity: 0;
+            }
+            3% {
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(calc(15vw + 150px)) translateY(-8px) rotate(0deg);
+            }
+            40% {
+                transform: translateX(calc(35vw + 150px)) translateY(5px) rotate(0.5deg);
+            }
+            50% {
+                transform: translateX(calc(45vw + 150px)) translateY(-3px) rotate(-0.5deg);
+            }
+            65% {
+                transform: translateX(calc(62vw + 150px)) translateY(6px) rotate(0.3deg);
+            }
+            80% {
+                transform: translateX(calc(80vw + 150px)) translateY(-4px) rotate(-0.5deg);
+                opacity: 1;
+            }
+            95% {
+                transform: translateX(calc(100vw + 150px)) translateY(-10px) rotate(-1.5deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(calc(110vw + 150px)) translateY(-15px) rotate(-2deg);
+                opacity: 0;
+            }
+        }
+
+        .light-intro-active .light-intro-plane {
+            animation: planeFlyAcross 3.5s linear forwards;
+            will-change: transform, opacity;
+        }
+
+        /* Contrail follows the plane */
+        @keyframes contrailExpand {
+            0% {
+                clip-path: inset(0 100% 0 0);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.5;
+            }
+            40% {
+                clip-path: inset(0 55% 0 0);
+                opacity: 0.7;
+            }
+            70% {
+                clip-path: inset(0 10% 0 0);
+                opacity: 0.5;
+            }
+            90% {
+                clip-path: inset(0 0% 0 0);
+                opacity: 0.3;
+            }
+            100% {
+                clip-path: inset(0 0% 0 0);
+                opacity: 0;
+            }
+        }
+
+        .light-intro-active .light-intro-contrail {
+            animation: contrailExpand 3.8s linear forwards;
+        }
+
+        /* Text appears when plane reaches center (at ~40% of 3.5s = 1.4s) */
+        @keyframes lightTextReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+                filter: blur(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .light-intro-active .light-intro-text {
+            animation: lightTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes lightSubtitleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .light-intro-active .light-intro-subtitle {
+            animation: lightSubtitleReveal 0.6s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+
+        /* Cloud drift animations for intro */
+        @keyframes cloudDrift1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(120vw); }
+        }
+        @keyframes cloudDrift2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-120vw); }
+        }
+        @keyframes cloudDrift3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(80vw); }
+        }
+        @keyframes cloudDrift4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .light-intro-active .light-intro-cloud1 {
+            animation: cloudDrift1 8s linear forwards;
+        }
+        .light-intro-active .light-intro-cloud2 {
+            animation: cloudDrift2 10s linear forwards;
+        }
+        .light-intro-active .light-intro-cloud3 {
+            animation: cloudDrift3 12s linear forwards;
+        }
+        .light-intro-active .light-intro-cloud4 {
+            animation: cloudDrift4 9s linear forwards;
+        }
+
+        /* Sun subtle pulse */
+        .light-intro-sun {
+            animation: sunPulse 2s ease-in-out infinite alternate;
+        }
+        @keyframes sunPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        /* --- END LIGHT INTRO ANIMATIONS --- */
 
         @keyframes portfolioReveal {
             0% {
