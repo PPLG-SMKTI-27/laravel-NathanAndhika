@@ -581,7 +581,7 @@
                             <!-- Memuat foto profile (pastikan file bernama foto.jpeg dan diletakkan di folder public) -->
                             <div
                                 class="photo-frame relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10">
-                                <img src="/foto.jpeg" alt="Natsssss"
+                                <img src="/foto.jpeg" alt="Nathan Andika"
                                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
 
                                 <!-- Decorative Elements -->
@@ -600,8 +600,8 @@
 
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
-                    const textPart1 = "I'M";
-                    const textPart2 = "Natsssss";
+                    const textPart1 = "Nathan";
+                    const textPart2 = "Andika";
                     const typeSpeed = 150;
                     const deleteSpeed = 100;
                     const delayBetweenLoops = 2500;
