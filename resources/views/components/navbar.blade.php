@@ -270,6 +270,7 @@
         box-shadow: 0 4px 20px rgba(14, 165, 233, 0.15), 0 0 10px rgba(14, 165, 233, 0.1);
         color: #475569;
     }
+
     .theme-light .hamburger-btn:hover {
         background: rgba(14, 165, 233, 0.15);
         border-color: rgba(14, 165, 233, 0.4);
@@ -283,16 +284,20 @@
         border-color: rgba(14, 165, 233, 0.2) !important;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1) !important;
     }
+
     .theme-light .mobile-sidebar-link {
         color: #475569 !important;
     }
+
     .theme-light .mobile-sidebar-link:hover {
         background: rgba(14, 165, 233, 0.08) !important;
         color: #0284c7 !important;
     }
+
     .theme-light .mobile-sidebar-header {
         border-color: #e2e8f0 !important;
     }
+
     .theme-light .mobile-sidebar-text {
         color: #64748b !important;
     }
@@ -439,7 +444,7 @@
             }
         });
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             const activeItem = document.querySelector('.bottom-nav-item.active[data-nav]');
             if (activeItem) {
                 moveNavPill(activeItem);
@@ -504,7 +509,8 @@
 
     {{-- Hamburger Button --}}
     <button @click="open = true" class="hamburger-btn" aria-label="Open Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
     </button>
@@ -575,7 +581,8 @@
         </div>
 
         <div class="flex flex-col p-4 pt-6 gap-1 overflow-y-auto flex-1">
-            <span class="mobile-sidebar-text px-4 text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-2">System_Links</span>
+            <span
+                class="mobile-sidebar-text px-4 text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-2">System_Links</span>
             @foreach(['home', 'about', 'skills', 'projects', 'contact'] as $link)
                 <a href="#{{ $link }}" @click="open = false"
                     class="mobile-sidebar-link group flex items-center justify-between py-3 px-4 rounded-sm text-[11px] font-mono uppercase tracking-[0.2em] text-slate-400 hover:text-cyan-400 hover:bg-white/5 transition-all duration-300">
@@ -594,7 +601,8 @@
         </div>
 
         <div class="p-6 text-center">
-            <p class="mobile-sidebar-text text-[8px] font-mono text-slate-700 uppercase tracking-widest">Protocol v.4.0.1 // Active</p>
+            <p class="mobile-sidebar-text text-[8px] font-mono text-slate-700 uppercase tracking-widest">Protocol
+                v.4.0.1 // Active</p>
         </div>
     </div>
 </div>

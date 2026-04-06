@@ -403,11 +403,11 @@
                         }
 
                         50% {
-                            transform: translate(20px, -15px) scale(1.05);
+                            transform: translate(120px, -15px) scale(1.05);
                         }
 
                         100% {
-                            transform: translate(-10px, 10px) scale(0.95);
+                            transform: translate(-60px, 10px) scale(0.95);
                         }
                     }
 
@@ -417,11 +417,11 @@
                         }
 
                         50% {
-                            transform: translate(-25px, 20px) scale(1.02);
+                            transform: translate(-150px, 20px) scale(1.02);
                         }
 
                         100% {
-                            transform: translate(15px, -10px) scale(1);
+                            transform: translate(80px, -10px) scale(1);
                         }
                     }
 
@@ -438,7 +438,7 @@
 
                 {{-- Awan di atas yang bergerak lambat secara acak --}}
                 {{-- Cloud 1 --}}
-                <svg class="absolute" style="top: 8%; left: 5%; animation: skyFloat1 18s ease-in-out infinite alternate;"
+                <svg class="absolute" style="top: 8%; left: 5%; animation: skyFloat1 12s ease-in-out infinite alternate;"
                     width="220" height="100" viewBox="0 0 220 100">
                     <g fill="white" opacity="0.6">
                         <ellipse cx="70" cy="60" rx="70" ry="35" />
@@ -448,7 +448,7 @@
                     </g>
                 </svg>
                 {{-- Cloud 2 --}}
-                <svg class="absolute" style="top: 15%; right: 10%; animation: skyFloat2 22s ease-in-out infinite alternate;"
+                <svg class="absolute" style="top: 15%; right: 10%; animation: skyFloat2 15s ease-in-out infinite alternate;"
                     width="180" height="80" viewBox="0 0 180 80">
                     <g fill="white" opacity="0.5">
                         <ellipse cx="60" cy="45" rx="55" ry="28" />
@@ -458,7 +458,7 @@
                 </svg>
                 {{-- Cloud 3 --}}
                 <svg class="absolute"
-                    style="top: 25%; left: 50%; animation: skyFloat1 25s ease-in-out infinite alternate-reverse;"
+                    style="top: 25%; left: 50%; animation: skyFloat1 18s ease-in-out infinite alternate-reverse;"
                     width="120" height="60" viewBox="0 0 120 60">
                     <g fill="white" opacity="0.4">
                         <ellipse cx="40" cy="35" rx="35" ry="20" />
