@@ -581,8 +581,8 @@
                             <!-- Memuat foto profile (pastikan file bernama foto.jpeg dan diletakkan di folder public) -->
                             <div
                                 class="photo-frame relative p-2 bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10">
-                                <img src="/foto.jpeg" alt="Nathan Andika"
-                                    class="w-64 md:w-80 aspect-[6/19] object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
+                                <img src="{{asset('foto.jpeg')}}" alt="Nathan Andika"
+                                    class="w-64 md:w-80 aspect-[3/4] object-cover rounded-lg grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500">
 
                                 <!-- Decorative Elements -->
                                 <div
