@@ -17,5 +17,13 @@ class AdminUserSeeder extends Seeder
                 'password' => Hash::make('nathan123'),
             ]
         );
+
+        User::firstOrCreate(
+            ['email' => 'thann9868@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('andiks123'),
+            ]
+        );
     }
 }
